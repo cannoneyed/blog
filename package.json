@@ -1,0 +1,47 @@
+{
+  "name": "gatsby-starter-blog",
+  "version": "1.0.0",
+  "description": "Blog",
+  "main": "n/a",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --history-api-fallback --hot --inline --progress --colors --port 3000",
+    "build": "NODE_ENV=production webpack --progress --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "author": "Alexandr Shell <alisin560@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby-starter-blog/issues"
+  },
+  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.8.4",
+    "postcss-loader": "^0.8.0",
+    "postcss-modules": "^0.1.3",
+    "rucksack-css": "^0.8.5",
+    "style-loader": "^0.12.4",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.0",
+    "webpack-hot-middleware": "^2.2.0"
+  },
+  "dependencies": {
+  	"classnames": "^2.1.2",
+    "history": "^1.17.0",
+    "lodash": "^3.10.1",
+    "moment": "^2.10.3",
+    "react": "^0.14.3",
+    "react-hot-loader": "^1.3.0",
+    "react-document-title": "^2.0.1",
+    "react-dom": "^0.14.3",
+    "react-router": "^0.13.5",
+    "underscore.string": "^3.2.2"
+  }
+}
