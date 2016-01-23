@@ -1,3 +1,4 @@
 blogTitle = "My Awesome Blog"
 authorName = "Kyle Mathews"
 linkPrefix = "/gatsby-starter-blog"
+blogDescr = "111"

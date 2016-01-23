@@ -1,0 +1,23 @@
+.sidebar {
+    background-image: url("http://static.tumblr.com/7v4ocid/Yzpn1cr60/bg-1.jpg");
+}
+.sidebar {
+    background-position: 0px 0px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 370px;
+}
+.sidebar a, .sidebar {
+    color: #FFF;
+}
+.sidebar-inner, .sidebar {
+    height: 100%;
+}
+.sidebar-inner {
+    padding: 70px 70px 210px;
+    box-sizing: border-box;
+}
+.site-logo {
+    margin-bottom: 30px;
+}

@@ -23,7 +23,7 @@ module.exports = React.createClass({
           <ReadNext post={post} {...this.props}/>
           <p>
             <img
-              src={link("/kyle-round-small-pantheon.jpg")}
+              src={link("/photo.jpg")}
             />
             <strong>{this.props.config.authorName}</strong> lives and works in San Francisco building useful things. <a href="https://twitter.com/kylemathews">You should follow him on Twitter</a>
           </p>
