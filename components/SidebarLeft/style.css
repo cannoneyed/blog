@@ -4,9 +4,12 @@
 .sidebar {
     background-position: 0px 0px;
     left: 0px;
-    position: absolute;
+    position: fixed;
     top: 0px;
     width: 370px;
+    background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 1;
 }
 .sidebar a, .sidebar {
     color: #FFF;

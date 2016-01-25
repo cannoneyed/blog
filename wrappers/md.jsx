@@ -4,8 +4,6 @@ import DocumentTitle from 'react-document-title';
 import { link } from 'gatsby-helpers';
 import ReadNext from '../components/ReadNext';
 
-import '../css/zenburn.css';
-
 module.exports = React.createClass({
   render: function() {
     var post
@@ -13,7 +11,7 @@ module.exports = React.createClass({
 
     return (
       <DocumentTitle title={`${post.title} | ${this.props.config.blogTitle}`}>
-        <div className="markdown">
+        <div className="content">
           <h1>{post.title}</h1>
           <div dangerouslySetInnerHTML={{__html: post.body}}/>
           <em>

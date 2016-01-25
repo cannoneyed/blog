@@ -2,15 +2,24 @@ import React from 'react';
 import { RouteHandler, Link } from 'react-router';
 import { link } from 'gatsby-helpers';
 
-import './style.css';
+import style from './style.css';
 
 export default class extends React.Component {
   render() {
     let blogName, blogDescr, blogLogo;
     if (this.props.state.path === link('/')) {
       blogName = (
-        <h1>
+        <h1
+          style={{
+            color: 'rgba(255,255,255,1)',
+            fontSize: '18px'
+          }}
+        >
           <Link
+            style={{
+              textDecoration: 'none',
+              color: 'inherit'
+            }}
             to={link('/')}
           >
             {this.props.config.blogTitle}
@@ -19,8 +28,17 @@ export default class extends React.Component {
       );
     } else {
       blogName = (
-        <h3>
+        <h3
+          style={{
+            color: 'rgba(255,255,255,1)',
+            fontSize: '18px'
+          }}
+        >
           <Link
+            style={{
+              textDecoration: 'none',
+              color: 'inherit'
+            }}
             to={link('/')}
           >
             {this.props.config.blogTitle}

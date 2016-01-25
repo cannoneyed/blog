@@ -32,10 +32,7 @@ export default class extends React.Component {
     }
     return (
       <DocumentTitle title={this.props.config.blogTitle}>
-        <div>
-          <p>
-            Written by <strong>{this.props.config.authorName}</strong> who lives and works in San Francisco building useful things. <a href="https://twitter.com/kylemathews">You should follow him on Twitter</a>
-          </p>
+        <div className='content'>
           <ul>
             {pageLinks}
           </ul>

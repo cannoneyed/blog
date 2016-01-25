@@ -12,14 +12,8 @@
     "type": "git",
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "author": "Alexandr Shell <alisin560@gmail.com>",
+  "author": "Alexandr Shelepenok <alisin560@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby-starter-blog/issues"
-  },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "devDependencies": {
     "css-loader": "^0.23.1",

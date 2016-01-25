@@ -1,6 +1,8 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
-import { link } from 'gatsby-helpers'
+import { link } from 'gatsby-helpers';
+
+import styles from './static/css/styles.css';
 
 export default class Html extends React.Component {
   render() {
@@ -22,6 +24,7 @@ export default class Html extends React.Component {
             `
               body {
                 color: rgb(66,66,66);
+                font-family: 'Proxima Nova', Arial, Helvetica;
               }
               h1,h2,h3,h4,h5,h6 {
                 color: rgb(44,44,44);
