@@ -1,0 +1,30 @@
+.wrapper {
+    background: #FFF;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 1200px;
+    height: 100%;
+}
+
+.content {
+	background: #FFF;
+	position: absolute;
+    height: 100%;
+    left: 370px;
+    right: 0px;
+    top: 0px;
+    box-sizing: border-box;
+}
+
+.main {
+	position: relative;
+	width: 100%;
+	left: 0px;
+	bottom: 0px;
+	top: 37px;
+}
+
+.main-inner {
+	padding: 70px 130px;
+}

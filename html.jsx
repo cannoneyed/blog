@@ -2,8 +2,6 @@ import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { link } from 'gatsby-helpers';
 
-import styles from './static/css/styles.css';
-
 export default class Html extends React.Component {
   render() {
     let title;
@@ -39,7 +37,7 @@ export default class Html extends React.Component {
             `
           }}/>
         </head>
-        <body className="landing-page">
+        <body>
           <div id="react-mount" dangerouslySetInnerHTML={{__html: this.props.body}} />
           <script src={link("/bundle.js")}/>
         </body>
