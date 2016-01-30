@@ -22,9 +22,10 @@ export default class Html extends React.Component {
             `
               body {
                 color: rgb(66,66,66);
-                font-family: 'Proxima Nova', Arial, Helvetica;
+                font-family: 'PT Serif', Serif;
               }
               h1,h2,h3,h4,h5,h6 {
+                font-family: 'Proxima Nova', Serif;
                 color: rgb(44,44,44);
               }
               a {
@@ -39,6 +40,7 @@ export default class Html extends React.Component {
         </head>
         <body>
           <div id="react-mount" dangerouslySetInnerHTML={{__html: this.props.body}} />
+          <link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'/>
           <script src={link("/bundle.js")}/>
         </body>
       </html>

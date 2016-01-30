@@ -40,12 +40,6 @@ export default class extends React.Component {
     return (
       <DocumentTitle title={this.props.config.blogTitle}>
         <div className='content'>
-          <div className='aside'>
-            <SeeAlso {...this.props}/>
-            <div className='toolbar'>
-              <span>Button</span>
-            </div>
-          </div>
           <div className='main'>
             <div className='main-inner'>
               {pageLinks}
