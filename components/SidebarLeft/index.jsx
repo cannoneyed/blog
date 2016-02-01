@@ -2,6 +2,7 @@ import React from 'react';
 import { RouteHandler, Link } from 'react-router';
 import { link } from 'gatsby-helpers';
 import BlogNav from '../BlogNav';
+import BlogSocial from '../BlogSocial';
 import style from './style.css';
 
 export default class extends React.Component {
@@ -9,18 +10,11 @@ export default class extends React.Component {
     let blogName, blogDescr, blogLogo;
     if (this.props.state.path === link('/')) {
       blogName = (
-        <h1
-          style={{
-            color: 'rgba(255,255,255,1)',
-            fontSize: '18px',
-            lineHeight: '1',
-            marginBottom: '5px',
-            marginTop: '5px'
-          }}
-        >
+        <h1>
           <Link
             style={{
               textDecoration: 'none',
+              borderBottom: 'none',
               color: 'inherit'
             }}
             to={link('/')}
@@ -31,25 +25,18 @@ export default class extends React.Component {
       );
     } else {
       blogName = (
-        <h3
-          style={{
-            color: 'rgba(255,255,255,1)',
-            fontSize: '18px',
-            lineHeight: '1',
-            marginBottom: '5px',
-            marginTop: '5px'
-          }}
-        >
+        <h2>
           <Link
             style={{
               textDecoration: 'none',
+              borderBottom: 'none',
               color: 'inherit'
             }}
             to={link('/')}
           >
             {this.props.config.blogTitle}
           </Link>
-        </h3>
+        </h2>
       );
     }
     blogLogo = (
@@ -58,7 +45,7 @@ export default class extends React.Component {
           width='60'
           height='60'
           style={{
-            marginBottom: '30px',
+            marginBottom: '15px',
             borderRadius: '50%',
             backgroundClip: 'padding-box'
           }}
@@ -82,10 +69,10 @@ export default class extends React.Component {
           <div className='blog-options'>
             <BlogNav {...this.props}/>
             <footer>
+            <BlogSocial {...this.props}/>
             </footer>
           </div>
         </div>
-        <div className='mask'></div>
       </div>
     );
   }

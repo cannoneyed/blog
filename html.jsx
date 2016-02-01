@@ -21,26 +21,36 @@ export default class Html extends React.Component {
           <style dangerouslySetInnerHTML={{__html:
             `
               body {
-                color: rgb(66,66,66);
-                font-family: 'PT Serif', Serif;
+                color: #2d3641;
+                font-family: 'Merriweather', Serif;
               }
               h1,h2,h3,h4,h5,h6 {
-                font-family: 'Proxima Nova', Serif;
-                color: rgb(44,44,44);
+                font-family: 'Roboto', sans-serif;
+                color: #2d3641;
               }
               a {
-                color: rgb(42,93,173);
+                color: #2ba1d4;
+                border-bottom: 1px solid;
                 text-decoration: none;
               }
               a:hover {
-                text-decoration: underline;
+                border-bottom: none;
+                text-decoration: none;
+              }
+              h2 a {
+                color: #2d3641;
+              }
+              hr {
+                border: none;
+                height: 1px;
+                background: #eee;
               }
             `
           }}/>
         </head>
         <body>
           <div id="react-mount" dangerouslySetInnerHTML={{__html: this.props.body}} />
-          <link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'/>
+          <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700|Merriweather:300,300italic,400,400italic,700,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css' />
           <script src={link("/bundle.js")}/>
         </body>
       </html>

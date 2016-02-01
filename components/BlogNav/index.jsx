@@ -12,7 +12,7 @@ export default class extends React.Component {
       <nav className='blog-nav'>
         <ul>
           <li>
-            <a href="/archive">Archive</a>
+            <a href="/about">Archive</a>
           </li>
           <li>
             <a href="/ask">Ask me anything</a>
@@ -21,7 +21,7 @@ export default class extends React.Component {
             <a href="/themes">More themes</a>
           </li>
           <li>
-            <a href="/buy">Buy this theme</a>
+            <a href="/rss">RSS</a>
           </li> 
         </ul>
       </nav>

@@ -25,11 +25,17 @@ export default class extends React.Component {
 
       return (
         <div>
-          <h6>
-            READ THIS NEXT:
+          <h6
+            style={{
+              fontSize: '16px',
+              margin: '20px 0 0'
+            }}
+          >
+            Читать далее:
           </h6>
           <h3
             style={{
+              margin: '5px 0 0'
             }}
           >
             <Link
@@ -39,8 +45,8 @@ export default class extends React.Component {
               {nextPost.data.title}
             </Link>
           </h3>
-          <p>{body}</p>
-          <hr />
+          <p>{nextPost.data.description}</p>
+          <hr/>
         </div>
       );
     }

@@ -14,19 +14,17 @@ module.exports = React.createClass({
         <div className='content'>
           <div className='main'>
             <div className='main-inner'>
-              <h1>{post.title}</h1>
-              <div dangerouslySetInnerHTML={{__html: post.body}}/>
-              <em>
-                Posted {moment(post.date).format('MMMM D, YYYY')}
-              </em>
-              <hr/>
-              <ReadNext post={post} {...this.props}/>
-              <p>
-                <img
-                  src={link("/photo.jpg")}
-                />
-                <strong>{this.props.config.authorName}</strong> lives and works in San Francisco building useful things. <a href="https://twitter.com/kylemathews">You should follow him on Twitter</a>
-              </p>
+              <div className='blog-post'>
+                <h1>{post.title}</h1>
+                <div dangerouslySetInnerHTML={{__html: post.body}}/>
+                <em>
+                  Опубликовано {moment(post.date).lang('ru').format('D MMM YYYY')}
+                </em>
+              </div>
+                <ReadNext post={post} {...this.props}/>
+                <p>
+                  <strong>{this.props.config.authorName}</strong> &copy; Все права сохранены. <a href="https://twitter.com/wpioneer0">@wpioneer on Twitter</a>
+                </p>
             </div>
           </div>
         </div>

@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'hyperico';
-  src: url('../font/hyperico.eot?63021520');
-  src: url('../font/hyperico.eot?63021520#iefix') format('embedded-opentype'),
-       url('../font/hyperico.woff?63021520') format('woff'),
-       url('../font/hyperico.ttf?63021520') format('truetype'),
-       url('../font/hyperico.svg?63021520#hyperico') format('svg');
+  src: url('hyperico.eot?63021520');
+  src: url('hyperico.eot?63021520#iefix') format('embedded-opentype'),
+       url('hyperico.woff?63021520') format('woff'),
+       url('hyperico.ttf?63021520') format('truetype'),
+       url('hyperico.svg?63021520#hyperico') format('svg');
   font-weight: normal;
   font-style: normal;
 }

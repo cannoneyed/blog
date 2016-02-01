@@ -1,4 +1,5 @@
 var rucksack = require('rucksack-css')
+var lost = require("lost")
 var webpack = require('webpack')
 var path = require("path")
 
@@ -15,6 +16,7 @@ module.exports = function(config, env) {
 
     config.merge({
       postcss: [
+        lost(),
         rucksack({
           autoprefixer: true
         })
@@ -37,8 +39,8 @@ module.exports = function(config, env) {
       return cfg
     });
 
-    config.loader('files', function(cfg) {
-      cfg.test = /\.(woff|woff2|eot|ttf)$/;
+    config.loader('fonts', function(cfg) {
+      cfg.test = /\.((woff|woff2|eot|ttf|svg)(\?[0-9]{8}))$/;
       cfg.loader = 'file-loader';
       return cfg
     });

@@ -9,22 +9,11 @@ export default class extends React.Component {
     let menu, menuItem;
 
     return (
-      <nav className='blog-nav'>
-        <ul>
-          <li>
-            <a href="/archive">Archive</a>
-          </li>
-          <li>
-            <a href="/ask">Ask me anything</a>
-          </li>
-          <li>
-            <a href="/themes">More themes</a>
-          </li>
-          <li>
-            <a href="/buy">Buy this theme</a>
-          </li> 
-        </ul>
-      </nav>
+      <div className='blog-post'>
+        <time>time</time>
+        <span className='blog-category'>category</span>
+        <h2>title</h2>
+      </div>
     );
   }
 }

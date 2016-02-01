@@ -6,6 +6,7 @@ import DocumentTitle from 'react-document-title';
 import { link } from 'gatsby-helpers';
 
 import SeeAlso from '../components/SeeAlso';
+import BlogPost from '../components/BlogPost';
 
 export default class extends React.Component {
   static data() {
@@ -25,14 +26,38 @@ export default class extends React.Component {
       title = ((ref1 = page.data) != null ? ref1.title : void 0) || page.path;
       if (page.path && page.path !== '/' && !((ref2 = page.data) != null ? ref2.draft : void 0)) {
         pageLinks.push(
-          <div>
-            <time dateTime={moment(ref1.date).format('MMMM D, YYYY')}>{moment(ref1.date).format('MMMM YYYY')}</time>
-            <span style={{
-              margin: '5px'
-            }}>•</span>
-            <span>{ref1.category}</span>
-            <h2><Link to={link(page.path)}>{title}</Link></h2>
+          <div className='blog-post'>
+            <time dateTime={moment(ref1.date).lang('ru').format('MMMM D, YYYY')}>{moment(ref1.date).lang('ru').format('MMMM YYYY')}</time>
+            <span
+              style={{
+                margin: '5px',
+                fontSize: '12px'
+              }}
+            >
+              •
+            </span>
+            <span className='blog-category'>{ref1.category}</span>
+            <h2>
+              <Link
+                style={{
+                  borderBottom: 'none',
+                }} 
+                to={link(page.path)}
+              >
+                {title}
+              </Link>
+            </h2>
             <p dangerouslySetInnerHTML={{__html: ref1.description}}/>
+            <Link
+              style={{
+                borderBottom: 'none'
+              }}
+              className='readmore'
+              to={link(page.path)}
+            >
+              Читать
+            </Link>
+
           </div>
         );
       }

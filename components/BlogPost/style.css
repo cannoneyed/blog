@@ -1,0 +1,44 @@
+.blog-post {
+	margin-bottom: 40px;
+}
+
+.blog-post h2 {
+	font-size: responsive 22px 28px;
+	margin: 10px 0 0;
+}
+
+.blog-post h2 a:hover {
+	border-bottom: 1px solid;
+}
+
+.blog-post p {
+	font-size: responsive 12px 14px;
+	line-height: 1.5;
+}
+
+.blog-post time {
+	font-family: 'Roboto';
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.blog-post .blog-category {
+	font-family: 'Roboto';
+	text-transform: uppercase;
+	color: #f25d22;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.blog-post .readmore {
+	text-transform: uppercase;
+	font-family: 'Roboto';
+	color: #2ba1d4;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.blog-post .readmore:hover {
+	border-bottom: 1px solid;
+}
