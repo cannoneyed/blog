@@ -1,20 +1,15 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "mysites-blog",
   "version": "1.0.0",
   "description": "Blog",
   "main": "n/a",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --history-api-fallback --hot --inline --progress --colors --port 3000",
-    "build": "NODE_ENV=production webpack --progress --colors"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/wpioneer/mysites-blog.git"
   },
   "author": "Alexandr Shelepenok <alisin560@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/wpioneer/mysites-blog/",
   "devDependencies": {
     "css-loader": "^0.23.1",
     "file-loader": "^0.8.4",
