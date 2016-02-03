@@ -70,6 +70,9 @@ export default class extends React.Component {
             <BlogNav {...this.props}/>
             <footer>
             <BlogSocial {...this.props}/>
+            <p className='copyright'>
+              &copy; Все права сохранены.
+            </p>
             </footer>
           </div>
         </div>

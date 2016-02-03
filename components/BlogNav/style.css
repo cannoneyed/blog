@@ -13,6 +13,8 @@
 
 .blog-nav ul li a {
 	border-bottom: 0;
+	font-weight: 600;
+	color: #1c5c78;
 }
 
 .blog-nav ul li a:hover {

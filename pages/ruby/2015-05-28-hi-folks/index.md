@@ -1,10 +1,10 @@
 ---
-title: New Beginnings
+title: Шифрование машины Purple
 date: "2015-05-28T22:40:32.169Z"
 layout: post
 readNext: "/hosting-static-sites-with-docker-and-nginx/"
-category: "RUBY ON RAILS"
-description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel neque dignissim mi maximus interdum. Cras dictum quam et ex molestie facilisis. Proin dapibus sed sapien nec gravida. Praesent at leo ut erat varius rhoncus at non mi. Quisque cursus non leo et varius."
+category: "Криптография"
+description: "В годы второй мировой войны японские специалисты трудились над разработкой шифровальных систем, названия которым давались по цветовым оттенкам."
 ---
 
 *This post is going to be a little hard to read for those that don't speak latin.*

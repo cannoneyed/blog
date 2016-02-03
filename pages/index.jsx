@@ -5,8 +5,12 @@ import sortBy from 'lodash/collection/sortBy';
 import DocumentTitle from 'react-document-title';
 import { link } from 'gatsby-helpers';
 
-import SeeAlso from '../components/SeeAlso';
 import BlogPost from '../components/BlogPost';
+
+import SidebarLeft from '../components/SidebarLeft';
+import BlogContent from '../components/BlogContent';
+
+import proxima from '../static/fonts/proxima/stylesheet.css';
 
 export default class extends React.Component {
   static data() {
@@ -30,8 +34,8 @@ export default class extends React.Component {
             <time dateTime={moment(ref1.date).lang('ru').format('MMMM D, YYYY')}>{moment(ref1.date).lang('ru').format('MMMM YYYY')}</time>
             <span
               style={{
-                margin: '5px',
-                fontSize: '12px'
+                padding: '5px',
+                fontSize: '14px'
               }}
             >
               •
@@ -64,10 +68,13 @@ export default class extends React.Component {
     }
     return (
       <DocumentTitle title={this.props.config.blogTitle}>
-        <div className='content'>
-          <div className='main'>
-            <div className='main-inner'>
-              {pageLinks}
+        <div>
+          <SidebarLeft {...this.props}/>
+          <div className='content'>
+            <div className='main'>
+              <div className='main-inner'>
+                {pageLinks}
+              </div>
             </div>
           </div>
         </div>

@@ -17,28 +17,69 @@
 }
 
 .blog-post time {
-	font-family: 'Roboto';
 	text-transform: uppercase;
-	font-weight: bold;
-	font-size: 12px;
+	font-weight: 600;
+	font-size: responsive 12px 14px;
 }
 
 .blog-post .blog-category {
-	font-family: 'Roboto';
 	text-transform: uppercase;
-	color: #f25d22;
-	font-weight: bold;
-	font-size: 12px;
+	color: #800507;
+	font-weight: 600;
+	font-size: responsive 12px 14px;
 }
 
 .blog-post .readmore {
 	text-transform: uppercase;
-	font-family: 'Roboto';
-	color: #2ba1d4;
-	font-weight: bold;
-	font-size: 12px;
+	color: #1c5c78;
+	font-weight: 600;
+	font-size: responsive 12px 14px;
 }
 
 .blog-post .readmore:hover {
-	border-bottom: 1px solid;
+	border-bottom: 1px solid !important;
+}
+
+.blog-single h1 {
+    text-align: center;
+}
+
+.blog-single .text {
+    padding: 0 160px;
+    font-size: responsive 14px 16px;
+    line-height: 1.6;
+}
+
+.blog-single .footer {
+    padding: 0 160px;
+}
+
+.gohome {
+	position: fixed;
+	left: 20px;
+	text-align: center;
+	border: none !important;
+	padding: 8px 16px;
+	color: #606578;
+	background: #f4edde;
+	font-weight: 600;
+	border-radius: 3px;
+}
+
+.gohome:hover {
+	color: #1c5c78;
+	background: #f3d8b3;
+}
+
+@media (max-width: 900px) {
+  .blog-single .text, .blog-single .footer {
+    padding: 0 15px;
+  }
+  .gohome {
+  	position: static;
+  	margin: 20px auto 0;
+	text-align: center;
+	width: 84px;
+	display: block;
+  }
 }

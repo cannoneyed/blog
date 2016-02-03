@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 import { prune, include as includes } from 'underscore.string';
 import find from 'lodash/collection/find';
-import { link } from 'gatsby-helpers'
+import { link } from 'gatsby-helpers';
+import style from './style.css';
 
 export default class extends React.Component {
   render() {
@@ -31,7 +32,7 @@ export default class extends React.Component {
               margin: '20px 0 0'
             }}
           >
-            Читать далее:
+            По теме:
           </h6>
           <h3
             style={{
@@ -45,8 +46,7 @@ export default class extends React.Component {
               {nextPost.data.title}
             </Link>
           </h3>
-          <p>{nextPost.data.description}</p>
-          <hr/>
+          <p className='description'>{nextPost.data.description}</p>
         </div>
       );
     }

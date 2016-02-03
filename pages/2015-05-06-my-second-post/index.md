@@ -1,11 +1,11 @@
 ---
-title: My Second Post!
+title: Работа с HealthKit. Часть 2!
 date: "2015-05-06T23:46:37.121Z"
 layout: post
 readNext: "/hi-folks/"
 path: "/my-second-post/"
 category: "RUBY ON RAILS"
-description: "Did you know that “despite its name, salted duck eggs can also be made from chicken eggs, though the taste and texture will be somewhat different, and the egg yolk will be less rich.”?"
+description: "Конец и начало года у разработчиков, как правило, всегда наполнены большим количеством проектов. Разобравшись со срочными делами и закатав повыше рукава, мы в Techmas пообещали себе делиться еще бОльшим количеством своих разработок с коллегами."
 
 ---
 

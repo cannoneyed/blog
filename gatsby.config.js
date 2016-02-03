@@ -23,34 +23,21 @@ module.exports = function(config, env) {
       ]
     });
 
-    //config.plugin('dedupe', webpack.optimize.DedupePlugin, []);
-    //config.plugin('uglify', webpack.optimize.UglifyJsPlugin, []);
-
-    config.removeLoader('js');
     config.removeLoader('css');
 
     config.loader('postcss', function(cfg) {
       cfg.test = /\.css$/;
       cfg.loaders = [
-          'style-loader',
+          'style',
           'css',
-          'postcss-loader'
+          'postcss'
       ];
       return cfg
     });
 
     config.loader('fonts', function(cfg) {
-      cfg.test = /\.((woff|woff2|eot|ttf|svg)(\?[0-9]{8}))$/;
+      cfg.test = /\.(((woff|woff2|eot|ttf|svg)(\?[0-9]{8}))|(woff|woff2|eot|ttf|svg))$/;
       cfg.loader = 'file-loader';
-      return cfg
-    });
-
-    config.loader('js', function(cfg) {
-      cfg.test = /\.jsx?$/;
-      cfg.loaders = [
-          //'react-hot',
-          'babel-loader'
-      ];
       return cfg
     });
   

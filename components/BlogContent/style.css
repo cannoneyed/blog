@@ -8,11 +8,26 @@
     lost-column: 2/3;
 }
 
-.main {
-}
-
 .main-inner {
 	padding: 40px;
+}
+
+.single-content {
+    width: 100%;
+}
+
+.single-content h1 {
+    text-align: center;
+}
+
+.single-content .text {
+    padding: 0 160px;
+    font-size: responsive 14px 16px;
+    line-height: 1.6;
+}
+
+.single-content .footer {
+    padding: 0 160px;
 }
 
 @media (max-width: 1100px) {
@@ -30,6 +45,9 @@
   }
  .main-inner {
     padding: 10px 20px;
+  }
+  .single-content .text, .single-content .footer {
+    padding: 0 15px;
   }
 }
 

@@ -5,7 +5,7 @@ layout: post
 readNext: "/my-second-post/"
 path: "/hello-world/"
 category: "RUBY ON RAILS"
-description: "This is my first post on my new fake blog! How exciting!"
+description: "Повседневная практика показывает, что укрепление и развитие структуры влечет за собой процесс внедрения и модернизации форм развития. Повседневная практика показывает, что реализация намеченных плановых заданий в значительной степени обуславливает создание форм развития."
 ---
 
 This is my first post on my new fake blog! How exciting!
