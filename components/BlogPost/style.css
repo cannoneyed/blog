@@ -2,8 +2,12 @@
 	margin-bottom: 40px;
 }
 
+.blog-post:last-child {
+	margin-bottom: 0;
+}
+
 .blog-post h2 {
-	font-size: responsive 22px 28px;
+	font-size: responsive 20px 28px;
 	margin: 10px 0 0;
 }
 
@@ -12,7 +16,7 @@
 }
 
 .blog-post p {
-	font-size: responsive 12px 14px;
+	font-size: 14px;
 	line-height: 1.5;
 }
 
