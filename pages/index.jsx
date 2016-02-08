@@ -1,15 +1,14 @@
 import React from 'react';
 import moment from 'moment';
+import Fetch from 'react-fetch'
 import { RouteHandler, Link } from 'react-router';
 import sortBy from 'lodash/collection/sortBy';
 import DocumentTitle from 'react-document-title';
 import { link } from 'gatsby-helpers';
-
 import BlogPost from '../components/BlogPost';
-
 import SidebarLeft from '../components/SidebarLeft';
 import BlogContent from '../components/BlogContent';
-
+import GithubFeed from '../components/GithubFeed';
 import proxima from '../static/fonts/proxima/stylesheet.css';
 
 export default class extends React.Component {
@@ -23,7 +22,7 @@ export default class extends React.Component {
     pageLinks = [];
     ref = sortBy(this.props.pages, (page) => {
       let ref;
-      return (ref = page.data) != null ? ref.date : void 0;
+      return (ref = page.data) != null ? ref.datePublished : void 0;
     }).reverse();
     for (i = 0, len = ref.length; i < len; i++) {
       page = ref[i];
@@ -31,7 +30,7 @@ export default class extends React.Component {
       if (page.path && page.path !== '/' && !((ref2 = page.data) != null ? ref2.draft : void 0)) {
         pageLinks.push(
           <div className='blog-post'>
-            <time dateTime={moment(ref1.date).lang('ru').format('MMMM D, YYYY')}>{moment(ref1.date).lang('ru').format('MMMM YYYY')}</time>
+            <time dateTime={moment(ref1.datePublished).locale('ru').format('MMMM D, YYYY')}>{moment(ref1.datePublished).locale('ru').format('MMMM YYYY')}</time>
             <span
               style={{
                 padding: '5px',
@@ -76,6 +75,9 @@ export default class extends React.Component {
                 {pageLinks}
               </div>
             </div>
+            <Fetch url="http://api.github.com/users/wpioneer/repos?per_page=30&sort=created&direction=desc">
+              <GithubFeed/>
+            </Fetch>
           </div>
         </div>
       </DocumentTitle>

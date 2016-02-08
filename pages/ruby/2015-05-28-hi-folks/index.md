@@ -1,6 +1,7 @@
 ---
 title: Шифрование машины Purple
-date: "2015-05-28T22:40:32.169Z"
+datePublished: "2015-05-28T22:40:32.169Z"
+dateModified: "2015-05-28T22:40:32.169Z"
 layout: post
 readNext: "/hosting-static-sites-with-docker-and-nginx/"
 category: "Криптография"

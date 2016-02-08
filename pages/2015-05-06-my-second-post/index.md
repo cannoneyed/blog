@@ -1,6 +1,7 @@
 ---
 title: Работа с HealthKit. Часть 2!
-date: "2015-05-06T23:46:37.121Z"
+datePublished: "2015-05-06T23:46:37.121Z"
+dateModified: "2015-05-06T23:46:37.121Z"
 layout: post
 readNext: "/hi-folks/"
 path: "/my-second-post/"
