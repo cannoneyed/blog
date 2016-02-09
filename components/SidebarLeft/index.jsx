@@ -60,7 +60,6 @@ export default class extends React.Component {
       <div className='sidebar'>
         <div className='sidebar-inner'>
           <div className='blog-details'>
-            {blogLogo}
             <header>
               {blogName}
               {blogDescr}
