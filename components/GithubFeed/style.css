@@ -1,0 +1,16 @@
+.github-feed {
+	padding: 0 40px 80px;
+}
+
+.github-feed h3 {
+	font-size: responsive 20px 28px;
+	margin-top: 0;
+}
+
+.github-feed ul {
+	padding: 0px 0px 0px 15px;
+}
+
+.github-feed ul > li a {
+	font-weight: 600;
+}
