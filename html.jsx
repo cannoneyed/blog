@@ -18,7 +18,6 @@ export default class Html extends React.Component {
           <meta name='viewport' content='user-scalable=no width=device-width, initial-scale=1.0 maximum-scale=1.0'/>
           <title>{this.props.title}</title>
           <link rel="shortcut icon" href={this.props.favicon}/>
-
           <style dangerouslySetInnerHTML={{__html:
             `
               body {
@@ -48,9 +47,20 @@ export default class Html extends React.Component {
               }
             `
           }}/>
+          <script dangerouslySetInnerHTML={{__html: `
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-73379983-1', 'auto');
+              ga('send', 'pageview');
+          `}}
+          />
         </head>
         <body>
           <div id="react-mount" dangerouslySetInnerHTML={{__html: this.props.body}} />
+          <link href={link("/app.css")} rel='stylesheet' type='text/css' />
           <script src={link("/bundle.js")}/>
         </body>
       </html>
