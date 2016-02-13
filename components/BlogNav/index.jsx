@@ -12,16 +12,13 @@ export default class extends React.Component {
       <nav className='blog-nav'>
         <ul>
           <li>
-            <a href="/about">Открыть обсуждение на Github</a>
+            <a href="/background.html">Мой бэкграунд</a>
           </li>
           <li>
-            <a href="/themes">Где меня найти</a>
+            <a href="/getquote.html">Узнать ответ</a>
           </li>
           <li>
-            <a href="/ask">Резюме</a>
-          </li>
-          <li>
-            <a href="/rss">RSS</a>
+            <a href="/feed.xml">RSS Feed</a>
           </li> 
         </ul>
       </nav>
