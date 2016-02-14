@@ -16,7 +16,7 @@ export default class extends React.Component {
       if (rep.fork != true) {
         githubFeed.push(
           <li>
-            <p><a href={rep.html_url}>{rep.name}</a> — {rep.description}</p>
+            <p><a href={rep.html_url}>{rep.name}</a> — {rep.description}.</p>
           </li>
         )
       }
