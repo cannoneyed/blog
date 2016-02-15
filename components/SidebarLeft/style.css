@@ -4,7 +4,7 @@
 
 .sidebar .sidebar-inner {
     position: relative;
-    padding: 40px 50px;
+    padding: 40px 40px;
 }
 
 .sidebar .sidebar-inner:after {
@@ -32,12 +32,13 @@
 }
 
 .sidebar .sidebar-inner p {
-    font-size: 14px;
+    font-size: responsive 14px 16px;
     line-height: 1.5;
 }
 
 .sidebar .sidebar-inner p.copyright {
   color: #b6b6b6;
+  font-size: 14px;
 }
 
 @media (max-width: 1100px) {

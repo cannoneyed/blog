@@ -42,11 +42,12 @@ export default class extends React.Component {
     blogLogo = (
         <img
           src='./photo.png'
-          width='60'
-          height='60'
+          width='75'
+          height='75'
           style={{
             marginBottom: '15px',
-            borderRadius: '50%',
+            opacity: '0.9',
+            borderRadius: '0%',
             backgroundClip: 'padding-box'
           }}
         />
@@ -61,6 +62,7 @@ export default class extends React.Component {
         <div className='sidebar-inner'>
           <div className='blog-details'>
             <header>
+              {blogLogo}
               {blogName}
               {blogDescr}
             </header>
@@ -70,7 +72,7 @@ export default class extends React.Component {
             <footer>
             <BlogSocial {...this.props}/>
             <p className='copyright'>
-              &copy; Все права сохранены.
+              &copy; All rights reserved.
             </p>
             </footer>
           </div>
