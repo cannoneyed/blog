@@ -7,8 +7,8 @@
 }
 
 .blog-post h2 {
-	font-size: responsive 20px 28px;
-	margin: 10px 0 0;
+	font-size: responsive 20px 36px;
+	margin: 5px 0 0;
 }
 
 .blog-post h2 a:hover {
@@ -16,28 +16,28 @@
 }
 
 .blog-post p {
-	font-size: 14px;
+	font-size: responsive 14px 16px;
 	line-height: 1.5;
+	margin-top: 10px;
 }
 
 .blog-post time {
-	text-transform: uppercase;
 	font-weight: 600;
-	font-size: responsive 12px 14px;
+	font-size: 14px;
+	text-transform: uppercase;
 }
 
 .blog-post .blog-category {
-	text-transform: uppercase;
-	color: #800507;
+	color: #fbc31b;
 	font-weight: 600;
-	font-size: responsive 12px 14px;
+	font-size: 14px;
+	text-transform: uppercase;
 }
 
 .blog-post .readmore {
-	text-transform: uppercase;
-	color: #1c5c78;
+	color: #1751ff;
 	font-weight: 600;
-	font-size: responsive 12px 14px;
+	font-size: responsive 14px 16px;
 }
 
 .blog-post .readmore:hover {
@@ -46,6 +46,8 @@
 
 .blog-single h1 {
     text-align: center;
+    font-size: responsive 20px 28px;
+    line-height: 1.4;
 }
 
 .blog-single .text {
