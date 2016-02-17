@@ -21,15 +21,15 @@ export default class Html extends React.Component {
           <style dangerouslySetInnerHTML={{__html:
             `
               body {
-                color: #2d3641;
+                color: #222;
                 font-family: 'Proxima Nova', Arial, sans-serif;
               }
               h1,h2,h3,h4,h5,h6 {
                 font-family: 'Proxima Nova', Arial, sans-serif;
-                color: #2d3641;
+                color: #222;
               }
               a {
-                color: #1C5C78;
+                color: #1751FF;
                 border-bottom: 1px solid;
                 text-decoration: none;
               }
@@ -38,7 +38,7 @@ export default class Html extends React.Component {
                 text-decoration: none;
               }
               h2 a {
-                color: #2d3641;
+                color: #222;
               }
               hr {
                 border: none;
