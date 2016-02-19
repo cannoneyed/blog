@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import duration from 'moment-duration-format';
 import Fetch from 'react-fetch'
 import { RouteHandler, Link } from 'react-router';
 import sortBy from 'lodash/collection/sortBy';
@@ -18,7 +19,7 @@ export default class extends React.Component {
     }
   }
   render() {
-    let i, len, page, pageLinks, ref, ref1, ref2, title, body;
+    let i, len, page, readTime, readSeconds, wordCount, pageLinks, ref, ref1, ref2, title;
     pageLinks = [];
     ref = sortBy(this.props.pages, (page) => {
       let ref;
@@ -27,6 +28,11 @@ export default class extends React.Component {
     for (i = 0, len = ref.length; i < len; i++) {
       page = ref[i];
       title = ((ref1 = page.data) != null ? ref1.title : void 0) || page.path;
+
+      wordCount = ((ref1 = page.data) != null ? ref1.body.split(' ').length : void 0);
+      readSeconds = (wordCount / 120) * 60;
+      readTime = moment.duration(readSeconds, 'seconds').locale('ru').format('m [мин.] s[с.]');
+
       if (page.path && page.path !== '/' && !((ref2 = page.data) != null ? ref2.draft : void 0)) {
         pageLinks.push(
           <div className='blog-post'>
@@ -34,7 +40,7 @@ export default class extends React.Component {
             <span
               style={{
                 padding: '5px',
-                fontSize: '14px'
+                fontSize: '16px'
               }}
             >
               •
@@ -58,7 +64,7 @@ export default class extends React.Component {
               className='readmore'
               to={link(page.path)}
             >
-              Читать
+              Читать {readTime}
             </Link>
 
           </div>
