@@ -52,7 +52,7 @@ generateSitemap = function(pages) {
 generateRssFeed = function(pages) {
   var feed, i, len, page, ref;
   feed = new Feed({
-    title: 'A. Shelepenok Blog',
+    title: 'Blog by A. Shelepenok',
     description: 'A blog by Alexander Shelepenok',
     link: 'http://ashel.xyz/',
     copyright: 'All rights reserved 2016, Alexander Shelepenok',
@@ -75,7 +75,7 @@ generateRssFeed = function(pages) {
       title: page.data.title,
       link: "http://ashel.xyz" + page.path,
       date: moment(page.data.datePublished).toDate(),
-      content: md.render(frontmatter(fs.readFileSync(__dirname + "/pages/" + page.requirePath, 'utf-8')).body),
+      content: page.data.description,
       author: [
         {
           name: "Alexander Shelepenok",

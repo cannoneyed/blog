@@ -21,7 +21,10 @@ module.exports = function(config, env) {
         rucksack({
           autoprefixer: true
         })
-      ]
+      ],
+      node: {
+        fs: "empty"
+      }
     });
 
     config.plugin('extract-css', ExtractTextPlugin, ["app.css"]);

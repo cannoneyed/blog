@@ -1,18 +1,26 @@
 import React from 'react';
 import moment from 'moment';
 import duration from 'moment-duration-format';
-import Fetch from 'react-fetch'
+import 'moment/locale/ru';
 import { RouteHandler, Link } from 'react-router';
 import sortBy from 'lodash/collection/sortBy';
+// import Fetch from 'react-fetch';
 import DocumentTitle from 'react-document-title';
 import { link } from 'gatsby-helpers';
 import BlogPost from '../components/BlogPost';
 import SidebarLeft from '../components/SidebarLeft';
 import BlogContent from '../components/BlogContent';
 import GithubFeed from '../components/GithubFeed';
-import proxima from '../static/fonts/proxima/stylesheet.css';
+
+/* 
+  DataFetch
+  <Fetch url="https://api.github.com/users/wpioneer/repos?per_page=30&sort=created&direction=desc">
+  <GithubFeed/>
+  </Fetch>
+*/
 
 export default class extends React.Component {
+
   static data() {
     return {
       yo: true
@@ -81,9 +89,9 @@ export default class extends React.Component {
                 {pageLinks}
               </div>
             </div>
-            <Fetch url="http://api.github.com/users/wpioneer/repos?per_page=30&sort=created&direction=desc">
+
               <GithubFeed/>
-            </Fetch>
+
           </div>
         </div>
       </DocumentTitle>

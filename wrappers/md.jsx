@@ -1,11 +1,23 @@
 import React from 'react';
 import moment from 'moment';
+import 'moment/locale/ru';
 import { RouteHandler, Link } from 'react-router';
 import { link } from 'gatsby-helpers';
 import DocumentTitle from 'react-document-title';
 import ReadNext from '../components/ReadNext';
+import forEach from 'lodash/collection/forEach';
+import hljs from 'highlight.js';
+import hljscss from '../static/css/highlight.css';
 
 export default class extends React.Component {
+  componentDidMount() {
+    var current = React.findDOMNode(this.refs.postBody);
+    var elements = current.getElementsByTagName('pre');
+
+    forEach(elements, function(el){
+      hljs.highlightBlock(el);
+    })
+  };
   render() {
     let post, home, postUrl, jsonLD;
     post = this.props.page.data;
@@ -49,7 +61,7 @@ export default class extends React.Component {
           <div className='blog-single'>
             <div className='text'>
               <h1>{post.title}</h1>
-              <div dangerouslySetInnerHTML={{__html: post.body}}/>
+                <div ref='postBody' dangerouslySetInnerHTML={{__html: post.body}}/>
               <em>
                 Опубликовано {moment(post.datePublished).locale('ru').format('D MMM YYYY')}
               </em>
@@ -57,7 +69,7 @@ export default class extends React.Component {
             <div className='footer'>
               <ReadNext post={post} {...this.props}/>
               <p>
-                <strong>{this.props.config.authorName}</strong> &copy; Все права сохранены. <a href={this.props.config.twitter}>@wpioneer on Twitter</a>
+                <strong>{this.props.config.authorName}</strong> © Все права сохранены. <a href={this.props.config.twitter}>wpioneer on Twitter</a>
               </p>
             </div>
           </div>

@@ -42,12 +42,12 @@ export default class extends React.Component {
     blogLogo = (
         <img
           src='./photo.png'
-          width='75'
-          height='75'
+          srcSet="./photo@2x.png 2x"
+          width='100'
+          height='100'
           style={{
             marginBottom: '15px',
-            opacity: '0.9',
-            borderRadius: '0%',
+            borderRadius: '5%',
             backgroundClip: 'padding-box'
           }}
         />
@@ -72,7 +72,7 @@ export default class extends React.Component {
             <footer>
             <BlogSocial {...this.props}/>
             <p className='copyright'>
-              &copy; All rights reserved.
+              &copy; Все права сохранены.
             </p>
             </footer>
           </div>
