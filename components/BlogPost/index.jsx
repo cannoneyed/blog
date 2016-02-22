@@ -6,8 +6,6 @@ import style from './style.css';
 
 export default class extends React.Component {
   render() {
-    let menu, menuItem;
-
     return (
       <div className='blog-post'>
         <time>time</time>

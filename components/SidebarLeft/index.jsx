@@ -41,8 +41,8 @@ export default class extends React.Component {
     }
     blogLogo = (
         <img
-          src='./photo.png'
-          srcSet="./photo@2x.png 2x"
+          src='./images/photo.png'
+          srcSet="./images/photo@2x.png 2x"
           width='100'
           height='100'
           style={{
@@ -72,7 +72,7 @@ export default class extends React.Component {
             <footer>
             <BlogSocial {...this.props}/>
             <p className='copyright'>
-              &copy; Все права сохранены.
+              &copy; All rights reserved.
             </p>
             </footer>
           </div>

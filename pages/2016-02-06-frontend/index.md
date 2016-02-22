@@ -2,9 +2,10 @@
 title: 'Работаем с Rucksack CSS'
 datePublished: "2016-02-06T23:46:37.121Z"
 dateModified: "2016-02-06T23:46:37.121Z"
+lang: ru
 layout: post
 path: "/frontend/postcss-rucksack/"
-category: "ФронтЕнд"
+category: "FrontEnd"
 description: "Не так давно решил, что нужно всё таки создать себе блог. Как и любой другой перфекционист я подошел к этому вопросу c особым интересом. В этой статье коротко расскажу о преимуществах PostCSS, а так же о Rucksack CSS - модуль PostCSS, который делает разработку менее болезненной."
 
 ---

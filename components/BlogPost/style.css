@@ -34,6 +34,16 @@
 	text-transform: uppercase;
 }
 
+.blog-post .flag {
+	margin-right: 7px;
+	margin-top: -3px;
+	display: inline-block;
+	vertical-align: middle;
+	width: 23px;
+	height: 17px;
+	background-size: contain !important;
+}
+
 .blog-post .readmore {
 	color: #1751ff;
 	font-weight: 600;

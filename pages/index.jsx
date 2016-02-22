@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import duration from 'moment-duration-format';
-import 'moment/locale/ru';
+// import 'moment/locale/ru';
 import { RouteHandler, Link } from 'react-router';
 import sortBy from 'lodash/collection/sortBy';
 // import Fetch from 'react-fetch';
@@ -39,12 +39,18 @@ export default class extends React.Component {
 
       wordCount = ((ref1 = page.data) != null ? ref1.body.split(' ').length : void 0);
       readSeconds = (wordCount / 120) * 60;
-      readTime = moment.duration(readSeconds, 'seconds').locale('ru').format('m [мин.] s[с.]');
+      readTime = moment.duration(readSeconds, 'seconds').format('m [min.] s[s.]');
 
       if (page.path && page.path !== '/' && !((ref2 = page.data) != null ? ref2.draft : void 0)) {
         pageLinks.push(
           <div className='blog-post'>
-            <time dateTime={moment(ref1.datePublished).locale('ru').format('MMMM D, YYYY')}>{moment(ref1.datePublished).locale('ru').format('MMMM YYYY')}</time>
+                      <span 
+              style={{
+                backgroundImage: 'url(./images/' + ref1.lang + '.png)',
+              }}
+              className='flag ru'>
+            </span>
+            <time dateTime={moment(ref1.datePublished).format('MMMM D, YYYY')}>{moment(ref1.datePublished).format('MMMM YYYY')}</time>
             <span
               style={{
                 padding: '5px',
@@ -72,7 +78,7 @@ export default class extends React.Component {
               className='readmore'
               to={link(page.path)}
             >
-              Читать {readTime}
+              Read {readTime}
             </Link>
 
           </div>

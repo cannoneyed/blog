@@ -1,7 +1,7 @@
 blogTitle = "Blog by A. Shelepenok"
 authorName = "Alexander Shelepenok"
 linkPrefix = "/gatsby-starter-blog"
-blogDescr = "Привет! Решаю вопросы связанные с разработкой и оптимизацией интернет-проектов."
+blogDescr = "Hi. I solve problems related to internet projects development and optimization."
 twitter = "https://twitter.com/truewpioneer"
 github = "https://github.com/wpioneer"
 vk = "https://vk.com/wpioneer"

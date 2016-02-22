@@ -24,9 +24,8 @@ export default class extends React.Component {
 
     return (
         <div className="github-feed">
-          <h3>Лента Github проектов</h3>
+          <h3>Github Projects Feed</h3>
           <ul>
-            <li><p><a target="_blank" href="https://github.com/wpioneer/lsplugin-jsonld">lsplugin-jsonld</a><span> — </span><span>JSON-LD for LiveStreet</span><span>.</span></p></li>
             <li><p><a target="_blank" href="https://github.com/wpioneer/mysites-blog">mysites-blog</a><span> — </span><span>Build with React, ES6, Webpack and postCSS</span><span>.</span></p></li>
             <li><p><a target="_blank" href="https://github.com/wpioneer/lscomponent-hbvendor">lscomponent-hbvendor</a><span> — </span><span>Vendor component for LS 2.0</span><span>.</span></p></li>
             <li><p><a target="_blank" href="https://github.com/wpioneer/lstemplate-yeti">lstemplate-yeti</a><span> — </span><span>Starter theme for LS 2.0 with Webpack, PostCSS and Bower</span><span>.</span></p></li>
