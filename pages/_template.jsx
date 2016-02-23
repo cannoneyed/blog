@@ -1,19 +1,32 @@
-import React from 'react';
-import { RouteHandler, Link } from 'react-router';
-import { link } from 'gatsby-helpers';
-import '../static/fonts/proxima/stylesheet.css';
-import ga from 'react-google-analytics';
+import React from 'react'
+import { Link } from 'react-router'
+import { link } from 'gatsby-helpers'
+import { config } from 'config'
+import ga from 'react-google-analytics'
 
-export default class extends React.Component {
+import '../static/fonts/proxima/stylesheet.css'
+
+class Template extends React.Component {
   render() {
-  	var GAInitiailizer = ga.Initializer;
-  	ga('create', 'UA-73379983-1', 'auto');
-	ga('send', 'pageview');
+    const { location, children } = this.props
+
+  	var GAInitiailizer = ga.Initializer
+  	ga('create', 'UA-73379983-1', 'auto')
+	  ga('send', 'pageview')
+
     return (
       <div className='wrapper'>
-        <RouteHandler {...this.props}/>
+        {children}
         <GAInitiailizer />
       </div>
     );
   }
 }
+
+Template.propTypes = {
+  children: React.PropTypes.any,
+  location: React.PropTypes.object,
+  route: React.PropTypes.object,
+}
+
+export default Template

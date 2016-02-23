@@ -1,0 +1,48 @@
+.blog-page {
+	margin-bottom: 40px;
+}
+
+.blog-page:last-child {
+	margin-bottom: 0;
+}
+
+.blog-page h1 {
+	font-size: responsive 20px 36px;
+	margin-top: 0;
+}
+
+.blog-page p {
+	font-size: responsive 14px 16px;
+	line-height: 1.5;
+	margin-top: 10px;
+}
+
+.gohome {
+	position: fixed;
+	left: 20px;
+	text-align: center;
+	border: none !important;
+	padding: 8px 16px;
+	color: #606578;
+	background: #f4edde;
+	font-weight: 600;
+	border-radius: 3px;
+}
+
+.gohome:hover {
+	color: #1c5c78;
+	background: #f3d8b3;
+}
+
+@media (max-width: 900px) {
+  .blog-single .text, .blog-single .footer {
+    padding: 0 15px;
+  }
+  .gohome {
+  	position: static;
+  	margin: 20px auto 0;
+	text-align: center;
+	width: 84px;
+	display: block;
+  }
+}

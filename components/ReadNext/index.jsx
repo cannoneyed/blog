@@ -1,28 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router';
-import { prune, include as includes } from 'underscore.string';
-import find from 'lodash/collection/find';
-import { link } from 'gatsby-helpers';
-import style from './style.css';
+import React from 'react'
+import { Link } from 'react-router'
+import { prune, include as includes } from 'underscore.string'
+import find from 'lodash/find'
+import style from './style.css'
 
-export default class extends React.Component {
+class ReadNext extends React.Component {
   render() {
-    let body, html, nextPost, readNext;
-    readNext = this.props.post.readNext;
-    if (readNext != null) {
-      nextPost = find(this.props.pages, function(page) {
-        return includes(page.path, readNext.slice(1, -1));
-      });
+    const { pages, post } = this.props
+    const { readNext } = post
+
+    let nextPost
+    if (readNext) {
+      nextPost = find(pages, (page) =>
+        includes(page.path, readNext)
+      )
     }
     if (!nextPost) {
-      return React.createElement("noscript", null);
+      return React.createElement('noscript', null)
     } else {
-      nextPost = find(this.props.pages, function(page) {
-        return includes(page.path, readNext.slice(1, -1));
-      });
-      // Create pruned version of the body.
-      html = nextPost.data.body;
-      body = prune(html.replace(/<[^>]*>/g, ''), 200);
+      nextPost = find(pages, (page) =>
+        includes(page.path, readNext.slice(1, -1))
+      )
+      const description = nextPost.data.description
 
       return (
         <div>
@@ -32,7 +31,7 @@ export default class extends React.Component {
               margin: '20px 0 0'
             }}
           >
-            По теме:
+            READ THIS NEXT:
           </h6>
           <h3
             style={{
@@ -46,9 +45,16 @@ export default class extends React.Component {
               {nextPost.data.title}
             </Link>
           </h3>
-          <p className='description'>{nextPost.data.description}</p>
+          <p className='description'>{description}</p>
         </div>
       );
     }
   }
 }
+
+ReadNext.propTypes = {
+  post: React.PropTypes.object.isRequired,
+  pages: React.PropTypes.array,
+}
+
+export default ReadNext

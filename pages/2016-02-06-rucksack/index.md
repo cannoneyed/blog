@@ -34,76 +34,87 @@ description: "Не так давно решил, что нужно всё так
 
 Часть конфига, которая отвечает за интеграцию PostCSS и Rucksack c Webpack:
 
-	var rucksack = require('rucksack-css');
-	var ExtractTextPlugin = require("extract-text-webpack-plugin");
+```
+var rucksack = require('rucksack-css');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-	module.exports = {
-      module: {
-	  loaders: [
-	    {
-	  	test: /\.css$/,
-	  	loader: ExtractTextPlugin.extract( 'style-loader', 'css-loader', 'postcss-loader' )
-	    }
-	  ]
-  	  },
-	  postcss: [
-	    rucksack({
-	      autoprefixer: true
-	    })
-	  ],
-	  plugins: [
-        new ExtractTextPlugin("styles.css")
-      ]
-	}
+module.exports = {
+  module: {
+  loaders: [
+    {
+  	test: /\.css$/,
+  	loader: ExtractTextPlugin.extract( 'style-loader', 'css-loader', 'postcss-loader' )
+    }
+  ]
+	  },
+  postcss: [
+    rucksack({
+      autoprefixer: true
+    })
+  ],
+  plugins: [
+    new ExtractTextPlugin("styles.css")
+  ]
+}
+```
 
 Думаю, всё понятно. В блоке postcss мы так же включаем **Rucksack Autoprefixer**. При последующей сборке все свойства Rucksack будут обработаны, а на выходе мы получим кроссбраузерые стили (styles.css).
 
 Интеграция с **Gulp**. Используйте [gulp-rucksack](https://github.com/simplaio/gulp-rucksack)
 
-	var gulp = require('gulp');
-	var rucksack = require('gulp-rucksack');
+```
+var gulp = require('gulp');
+var rucksack = require('gulp-rucksack');
 
-	gulp.task('rucksack', function() {
-	  return gulp.src('src/styles.css')
-	    .pipe(rucksack())
-	    .pipe(gulp.dest('styles.css'));
-	});
+gulp.task('rucksack', function() {
+  return gulp.src('src/styles.css')
+    .pipe(rucksack())
+    .pipe(gulp.dest('styles.css'));
+});
+```
 
 Интеграция с **Grunt**. Используйте [grunt-rucksack](https://github.com/simplaio/grunt-rucksack)
 
-	require('load-grunt-tasks')(grunt);
+```
+require('load-grunt-tasks')(grunt);
 
-	grunt.initConfig({
-	    rucksack: {
-	        compile: {
-	            files: {
-	                'style.css': 'src/styles.css'
-	            }
-	        }
-	    }
-	});
-
-	grunt.registerTask('default', ['rucksack']);
+grunt.initConfig({
+    rucksack: {
+        compile: {
+            files: {
+                'style.css': 'src/styles.css'
+            }
+        }
+    }
+});
+grunt.registerTask('default', ['rucksack']);
+```
 
 Интеграция с **Broccoli**. Используйте [broccoli-rucksack](https://github.com/simplaio/broccoli-rucksack)
 
-	var rucksack = require('broccoli-rucksack');
-	tree = rucksack(tree, [options]);
+```
+var rucksack = require('broccoli-rucksack');
+tree = rucksack(tree, [options]);
+```
 
 Для интеграции со **Stylus** можно воспользоваться плагином [PostStylus](https://github.com/seaneking/poststylus)
 
-	stylus(css).use(poststylus('rucksack-css'))
+```
+stylus(css).use(poststylus('rucksack-css'))
+```
 
 Возможности
 --------
 
 Rucksack полностью модульный, вы можете добавить любую новую возможность, чтобы настроить всё под свои нужды. По умолчанию все основные функции доступны, но вы можете включать/отключать с помощью `True` `False`. Небольшой пример:
 
-	// Set in build tool
-	rucksack({
-	  clearFix: false,
-	  autoprefixer: true
-	});
+```
+// Set in build tool
+rucksack({
+  clearFix: false,
+  autoprefixer: true
+});
+```
 
 А вот и список всех дефолтных аддонов:
 
@@ -124,7 +135,7 @@ Rucksack полностью модульный, вы можете добавит
 
 В Webpack-конфиге я включил Autoprefixer, как вы уже видели.
 
-Из всего этого в блоге были зайдействованы clearFix и responsiveType, поэтому ниже будут пару слов и примеры только по этим свойствам. Не менее интересные свойства можно найти в документации [Rucksack](https://simplaio.github.io/rucksack/docs/).
+Из всего этого в блоге были зайдействованы `clearFix` и `responsiveType`, поэтому ниже будут пару слов и примеры только по этим свойствам. Не менее интересные свойства можно найти в документации [Rucksack](https://simplaio.github.io/rucksack/docs/).
 
 ### Адаптивная типографика
 
@@ -134,68 +145,81 @@ Rucksack полностью модульный, вы можете добавит
 
 #### Быстрый старт
 
-	.foo {
-	  font-size: responsive;
-	}
+```
+.foo {
+  font-size: responsive;
+}
+```
 
 Но, наверное, вы захотите добавить минимальный и максимальный размер шрифта. 
 
-	font-size: responsive [min-font-size] [max-font-size]
-	font-range: [lower-bound] [upper-bound]
+```
+font-size: responsive [min-font-size] [max-font-size]
+font-range: [lower-bound] [upper-bound]
+```
 
 `font-range` -- это новое свойство, которое определяет области просмотра, между которыми шрифт будет адаптивным.  Устанавливаются мин / макс значения.
 
 Небольшой пример:
 
-	body {
-	  font-size: responsive 12px 21px;
-	  font-range: 420px 1024px;
-	}
+```
+body {
+  font-size: responsive 12px 21px;
+  font-range: 420px 1024px;
+}
+```
 
 Все значения могут быть в `px`, `rem` или `em`.
 
 
 #### Расширенный синтаксис
 
-	html {
-	  font-size: responsive;
-	  min-font-size: 12px;
-	  max-font-size: 21px;
-	  lower-font-range: 420px;
-	  upper-font-range: 1280px;
-	}
+```
+html {
+  font-size: responsive;
+  min-font-size: 12px;
+  max-font-size: 21px;
+  lower-font-range: 420px;
+  upper-font-range: 1280px;
+}
+```
 
 #### Вывод
 
 Мы получаем font-size с использованием Calc, а так же размеры vw. Кроме этого, есть медиазапросы.
 
-	html {
-	  font-size: calc(12px + 9 * ( (100vw - 420px) / 860));
-	}
+```
+html {
+  font-size: calc(12px + 9 * ( (100vw - 420px) / 860));
+}
 
-	@media screen and (max-width: 420px) {
-	  html {
-	    font-size: 12px;
-	  }
-	}
+@media screen and (max-width: 420px) {
+  html {
+    font-size: 12px;
+  }
+}
 
-	@media screen and (min-width: 1280px) {
-	  html {
-	    font-size: 21px;
-	  }
-	}
+@media screen and (min-width: 1280px) {
+  html {
+    font-size: 21px;
+  }
+}
+```
 
 Что эквивалентно:
 
-	min-size + (min-size - max-size) * ( (100vw - min-width) / ( max-width - min-width) )
-
+```
+min-size + (min-size - max-size) * ( (100vw - min-width) / ( max-width - min-width) )
+```
 
 Настройки по умолчанию:
 
-	min-font-size: 14px
-	max-font-size: 21px
-	lower-font-range: 420px
-	upper-font-range: 1280px
+```
+min-font-size: 14px
+max-font-size: 21px
+lower-font-range: 420px
+upper-font-range: 1280px
+```
 
 
 ### Нативный ClearFix
@@ -205,32 +229,36 @@ Rucksack полностью модульный, вы можете добавит
 
 #### PostCSS
 
-	.foo {
-	  clear: fix;
-	}
+```
+.foo {
+  clear: fix;
+}
 
-	.bar {
-	  clear: fix-legacy;
-	}
+.bar {
+  clear: fix-legacy;
+}
+```
 
 #### Вывод CSS
 
-	/* fix */
-	.foo:after{
-	  content: '';
-	  display: table;
-	  clear: both;
-	}
+```
+/* fix */
+.foo:after{
+  content: '';
+  display: table;
+  clear: both;
+}
 
-	/* fix-legacy */
-	.bar:before,
-	.bar:after {
-	  content: '';
-	  display: table;
-	}
-	.bar:after {
-	  clear: both;
-	}
-	.bar {
-	  zoom: 1;
-	}
+/* fix-legacy */
+.bar:before,
+.bar:after {
+  content: '';
+  display: table;
+}
+.bar:after {
+  clear: both;
+}
+.bar {
+  zoom: 1;
+}
+```

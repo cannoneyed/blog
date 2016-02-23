@@ -1,79 +1,35 @@
-import React from 'react';
-import moment from 'moment';
-import { RouteHandler, Link } from 'react-router';
-import { link } from 'gatsby-helpers';
-import DocumentTitle from 'react-document-title';
-import ReadNext from '../components/ReadNext';
-import forEach from 'lodash/collection/forEach';
-import hljs from 'highlight.js';
-import '../static/css/highlight.css';
+import React from 'react'
+import DocumentTitle from 'react-document-title'
+import BlogPost from '../components/BlogPost'
+import BlogPage from '../components/BlogPage'
+import { config } from 'config'
 
-export default class extends React.Component {
-  componentDidMount() {
-    var current = React.findDOMNode(this.refs.postBody);
-    var elements = current.querySelectorAll('pre code:not(.hljs)');
-
-    forEach(elements, function(el){
-      hljs.highlightBlock(el);
-    })
-  };
+class MarkdownWrapper extends React.Component {
   render() {
-    let post, home, postUrl, jsonLD;
-    post = this.props.page.data;
-    home = (
-      <div>
-        <Link
-          className='gohome'
-          to={link('/')}
-        >
-          All Articles
-        </Link>
-      </div>
-    );
+    const { route } = this.props
+    const post = route.page.data
 
-    jsonLD = `
-      <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "Article",
-            "publisher": "` + this.props.config.authorName + `",
-            "author": {
-                "@type": "Person",
-                "name": "` + this.props.config.authorName + `",
-                "url": "http://ashel.xyz/",
-                "sameAs": "http://ashel.xyz/"
-            },
-            "headline": "` + post.title + `",
-            "url": "",
-            "datePublished": "` + post.datePublished + `",
-            "dateModified": "` + post.dateModified + `",
-            "description": "` + post.description + `";
-        }
-      </script>
-    `;
+    let layout, template
+    layout = post.layout
+
+    if (layout != 'page') {
+      template = <BlogPost {...this.props}/>
+    } else {
+      template = <BlogPage {...this.props}/>
+    }
 
     return (
-      <DocumentTitle title={`${post.title} | ${this.props.config.blogTitle}`}>
+      <DocumentTitle title={`${post.title} - ${config.blogTitle}`}>
         <div>
-          <div dangerouslySetInnerHTML={{__html: jsonLD}}/>
-          {home}
-          <div className='blog-single'>
-            <div className='text'>
-              <h1>{post.title}</h1>
-                <div ref='postBody' dangerouslySetInnerHTML={{__html: post.body}}/>
-              <em>
-                Published {moment(post.datePublished).format('D MMM YYYY')}
-              </em>
-            </div>
-            <div className='footer'>
-              <ReadNext post={post} {...this.props}/>
-              <p>
-                <strong>{this.props.config.authorName}</strong> © All rights reserved. <a href={this.props.config.twitter}>wpioneer on Twitter</a>
-              </p>
-            </div>
-          </div>
+          {template}
         </div>
       </DocumentTitle>
     );
   }
 }
+
+MarkdownWrapper.propTypes = {
+  route: React.PropTypes.object,
+}
+
+export default MarkdownWrapper

@@ -2,8 +2,8 @@ var Feed, sm, MarkdownIt, filter, frontmatter, fs, generateRssFeed, generateSite
 
 Feed = require('feed');
 sm = require('sitemap');
-filter = require('lodash/collection/filter');
-sortBy = require('lodash/collection/sortBy');
+filter = require('lodash/filter');
+sortBy = require('lodash/sortBy');
 moment = require('moment');
 MarkdownIt = require('markdown-it');
 fs = require('fs');

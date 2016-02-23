@@ -1,56 +1,53 @@
-import React from 'react';
+import React from 'react'
+import { Link } from 'react-router'
+import sortBy from 'lodash/sortBy'
 import moment from 'moment';
-import duration from 'moment-duration-format';
-// import 'moment/locale/ru';
-import { RouteHandler, Link } from 'react-router';
-import sortBy from 'lodash/collection/sortBy';
+import duration from 'moment-duration-format'
 // import Fetch from 'react-fetch';
-import DocumentTitle from 'react-document-title';
-import { link } from 'gatsby-helpers';
-import BlogPost from '../components/BlogPost';
-import SidebarLeft from '../components/SidebarLeft';
-import BlogContent from '../components/BlogContent';
-import GithubFeed from '../components/GithubFeed';
+import DocumentTitle from 'react-document-title'
+import { link } from 'gatsby-helpers'
+import access from 'safe-access'
+import { config } from 'config'
+
+import BlogPost from '../components/BlogPost'
+import SidebarLeft from '../components/SidebarLeft'
+import BlogContent from '../components/BlogContent'
+import GithubFeed from '../components/GithubFeed'
 
 /* 
-  DataFetch
+  Data Fetching
   <Fetch url="https://api.github.com/users/wpioneer/repos?per_page=30&sort=created&direction=desc">
   <GithubFeed/>
   </Fetch>
 */
 
-export default class extends React.Component {
-
-  static data() {
-    return {
-      yo: true
-    }
-  }
+class BlogIndex extends React.Component {
   render() {
-    let i, len, page, readTime, readSeconds, wordCount, pageLinks, ref, ref1, ref2, title;
-    pageLinks = [];
-    ref = sortBy(this.props.pages, (page) => {
-      let ref;
-      return (ref = page.data) != null ? ref.datePublished : void 0;
-    }).reverse();
-    for (i = 0, len = ref.length; i < len; i++) {
-      page = ref[i];
-      title = ((ref1 = page.data) != null ? ref1.title : void 0) || page.path;
+    const pageLinks = []
+    const sortedPages = sortBy(this.props.route.pages, (page) =>
+      access(page, 'data.date')
+    ).reverse()
 
-      wordCount = ((ref1 = page.data) != null ? ref1.body.split(' ').length : void 0);
-      readSeconds = (wordCount / 120) * 60;
-      readTime = moment.duration(readSeconds, 'seconds').format('m [min.] s[s.]');
+    sortedPages.forEach((page) => {
+      if (access(page, 'file.ext') === 'md' && access(page, 'data.layout') != 'page') {
+        const title = access(page, 'data.title') || page.path
+        const description = access(page, 'data.description')
+        const lang = access(page, 'data.lang') || 'en'
+        const datePublished = access(page, 'data.datePublished')
+        const category = access(page, 'data.category')
 
-      if (page.path && page.path !== '/' && !((ref2 = page.data) != null ? ref2.draft : void 0)) {
+        let readSeconds = (access(page, 'data.body').split(' ').length / 120) * 60
+        const readTime = moment.duration(readSeconds, 'seconds').format('m [min.] s[s.]')
+
         pageLinks.push(
           <div className='blog-post'>
-                      <span 
+            <span 
               style={{
-                backgroundImage: 'url(./images/' + ref1.lang + '.png)',
+                backgroundImage: 'url(./images/' + lang + '.png)',
               }}
-              className='flag ru'>
+              className='flag'>
             </span>
-            <time dateTime={moment(ref1.datePublished).format('MMMM D, YYYY')}>{moment(ref1.datePublished).format('MMMM YYYY')}</time>
+            <time dateTime={moment(datePublished).format('MMMM D, YYYY')}>{moment(datePublished).format('MMMM YYYY')}</time>
             <span
               style={{
                 padding: '5px',
@@ -59,7 +56,7 @@ export default class extends React.Component {
             >
               •
             </span>
-            <span className='blog-category'>{ref1.category}</span>
+            <span className='blog-category'>{category}</span>
             <h2>
               <Link
                 style={{
@@ -70,7 +67,7 @@ export default class extends React.Component {
                 {title}
               </Link>
             </h2>
-            <p dangerouslySetInnerHTML={{__html: ref1.description}}/>
+            <p dangerouslySetInnerHTML={{__html: description}}/>
             <Link
               style={{
                 borderBottom: 'none'
@@ -80,13 +77,13 @@ export default class extends React.Component {
             >
               Read {readTime}
             </Link>
-
           </div>
-        );
+        )
       }
-    }
+    })
+
     return (
-      <DocumentTitle title={this.props.config.blogTitle}>
+      <DocumentTitle title={config.blogTitle}>
         <div>
           <SidebarLeft {...this.props}/>
           <div className='content'>
@@ -95,12 +92,16 @@ export default class extends React.Component {
                 {pageLinks}
               </div>
             </div>
-
               <GithubFeed/>
-
           </div>
         </div>
       </DocumentTitle>
     )
   }
 }
+
+BlogIndex.propTypes = {
+  route: React.PropTypes.object,
+}
+
+export default BlogIndex

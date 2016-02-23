@@ -19,7 +19,7 @@ p > code, span > code  {
 }
 
 
-.hljs {
+pre code {
   display: block;
   border-radius: 3px;
   overflow-x: auto;

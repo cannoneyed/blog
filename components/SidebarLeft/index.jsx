@@ -1,70 +1,107 @@
-import React from 'react';
-import { RouteHandler, Link } from 'react-router';
-import { link } from 'gatsby-helpers';
-import BlogNav from '../BlogNav';
-import BlogSocial from '../BlogSocial';
-import style from './style.css';
+import React from 'react'
+import { RouteHandler, Link } from 'react-router'
+import { link } from 'gatsby-helpers'
+import BlogNav from '../BlogNav'
+import BlogSocial from '../BlogSocial'
+import { config } from 'config'
+import './style.css'
 
-export default class extends React.Component {
+class SidebarLeft extends React.Component {
   render() {
-    let blogName, blogDescr, blogLogo;
-    if (this.props.state.path === link('/')) {
-      blogName = (
-        <h1>
+    const { location, children } = this.props
+    let header
+    if (location.pathname === link('/')) {
+      header = (
+        <header>
           <Link
             style={{
               textDecoration: 'none',
               borderBottom: 'none',
-              color: 'inherit'
+              outline: 'none'
             }}
             to={link('/')}
           >
-            {this.props.config.blogTitle}
+            <img
+              src='./images/photo.png'
+              srcSet="./images/photo@2x.png 2x"
+              width='100'
+              height='100'
+              style={{
+                marginBottom: '15px',
+                borderRadius: '5%',
+                backgroundClip: 'padding-box'
+              }}
+            />
           </Link>
-        </h1>
+
+          <h1>
+            <Link
+              style={{
+                textDecoration: 'none',
+                borderBottom: 'none',
+                color: 'inherit'
+              }}
+              to={link('/')}
+            >
+              {config.blogTitle}
+            </Link>
+          </h1>
+
+          <p>
+            {config.blogDescr}
+          </p>
+        </header>
       );
     } else {
-      blogName = (
-        <h2>
+      header = (
+        <header>
           <Link
             style={{
               textDecoration: 'none',
               borderBottom: 'none',
-              color: 'inherit'
+              outline: 'none'
             }}
             to={link('/')}
           >
-            {this.props.config.blogTitle}
+            <img
+              src='./images/photo.png'
+              srcSet="./images/photo@2x.png 2x"
+              width='100'
+              height='100'
+              style={{
+                marginBottom: '15px',
+                borderRadius: '5%',
+                backgroundClip: 'padding-box'
+              }}
+            />
           </Link>
-        </h2>
+
+          <h2>
+            <Link
+              style={{
+                textDecoration: 'none',
+                borderBottom: 'none',
+                color: 'inherit'
+              }}
+              to={link('/')}
+            >
+              {config.blogTitle}
+            </Link>
+          </h2>
+
+          <p>
+            {config.blogDescr}
+          </p>
+        </header>
       );
     }
-    blogLogo = (
-        <img
-          src='./images/photo.png'
-          srcSet="./images/photo@2x.png 2x"
-          width='100'
-          height='100'
-          style={{
-            marginBottom: '15px',
-            borderRadius: '5%',
-            backgroundClip: 'padding-box'
-          }}
-        />
-    );
-    blogDescr = (
-        <p>
-          {this.props.config.blogDescr}
-        </p>
-    ); 
+
     return (
       <div className='sidebar'>
         <div className='sidebar-inner'>
           <div className='blog-details'>
             <header>
-              {blogLogo}
-              {blogName}
-              {blogDescr}
+              {header}
             </header>
           </div>
           <div className='blog-options'>
@@ -81,3 +118,10 @@ export default class extends React.Component {
     );
   }
 }
+
+SidebarLeft.propTypes = {
+  children: React.PropTypes.any,
+  location: React.PropTypes.object,
+}
+
+export default SidebarLeft

@@ -2,26 +2,23 @@ import React from 'react';
 import { RouteHandler, Link } from 'react-router';
 import { link } from 'gatsby-helpers';
 
-import style from './style.css';
+import './style.css';
 
-export default class extends React.Component {
+class BlogNav extends React.Component {
   render() {
-    let menu, menuItem;
-
     return (
       <nav className='blog-nav'>
         <ul>
           <li>
-            <a target="_blank" href="https://github.com/wpioneer">My Background</a>
+            <Link to="/background">Background</Link>
           </li>
           <li>
-            <a href="maito:a.shelepenok@gmail.com">Get Quote</a>
+            <Link to="/contacts">Contacts</Link>
           </li>
-          <li>
-            <a target="_blank" href="/feed.xml">RSS Feed</a>
-          </li> 
         </ul>
       </nav>
     );
   }
 }
+
+export default BlogNav

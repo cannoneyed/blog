@@ -1,20 +1,20 @@
-import React from 'react';
-import { RouteHandler, Link } from 'react-router';
-import { link } from 'gatsby-helpers';
+import React from 'react'
+import { RouteHandler, Link } from 'react-router'
+import { link } from 'gatsby-helpers'
+import { config } from 'config'
 
-import style from './style.css';
-import hyperico from '../../static/fonts/hyperico/style.css';
+import './style.css'
+import '../../static/fonts/hyperico/style.css'
 
-export default class extends React.Component {
+class BlogSocial extends React.Component {
   render() {
-    let twitter, vk, rss, email, github, telegram;
 
-    twitter = this.props.config.blogTitle;
-    vk = this.props.config.vk;
-    rss = this.props.config.rss;
-    email = this.props.config.email;
-    github = this.props.config.github;
-    telegram = this.props.config.telegram;
+    const twitter = config.blogTitle
+    const vk = config.vk
+    const rss = config.rss
+    const email = config.email
+    const github = config.github
+    const telegram = config.telegram
 
     return (
       <div className='blog-social'>
@@ -34,3 +34,5 @@ export default class extends React.Component {
     );
   }
 }
+
+export default BlogSocial

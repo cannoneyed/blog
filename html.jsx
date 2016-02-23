@@ -1,13 +1,18 @@
-import React from 'react';
-import DocumentTitle from 'react-document-title';
-import { link } from 'gatsby-helpers';
+import React from 'react'
+import DocumentTitle from 'react-document-title'
+import { link } from 'gatsby-helpers'
 
 export default class Html extends React.Component {
   render() {
-    let title;
-    title = DocumentTitle.rewind();
+    const { favicon, body } = this.props
+    let title = DocumentTitle.rewind()
     if (this.props.title) {
-      title = this.props.title;
+      title = this.props.title
+    }
+
+    let cssLink
+    if (process.env.NODE_ENV === 'production') {
+      cssLink = <link rel="stylesheet" href={link('/app.css')} />
     }
 
     return (
@@ -15,10 +20,12 @@ export default class Html extends React.Component {
         <head>
           <meta charSet="utf-8"/>
           <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
-          <meta name='viewport' content='user-scalable=no width=device-width, initial-scale=1.0 maximum-scale=1.0'/>
+          <meta
+            name="viewport"
+            content="user-scalable=no width=device-width, initial-scale=1.0 maximum-scale=1.0"
+          />
           <title>{this.props.title}</title>
-          <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon"/>
-          <link rel="icon" href="/images/favicon.ico" type="image/x-icon"/>
+          <link rel="shortcut icon" href={favicon} />
           <style dangerouslySetInnerHTML={{__html:
             `
               body {
@@ -48,15 +55,21 @@ export default class Html extends React.Component {
               }
             `
           }}/>
-
+          {cssLink}
         </head>
         <body>
           <div id="react-mount" dangerouslySetInnerHTML={{__html: this.props.body}} />
-          <link href={link("/app.css")} rel='stylesheet' type='text/css' />
-          <script src={link("/bundle.js")}/>
+          <script src={link('/bundle.js')}/>
         </body>
       </html>
     );
   }
 }
-Html.defaultProps = { body: "" };
+
+Html.propTypes = {
+  body: React.PropTypes.string,
+  favicon: React.PropTypes.string,
+  title: React.PropTypes.string,
+}
+
+Html.defaultProps = { body: '' }
