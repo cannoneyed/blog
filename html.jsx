@@ -12,7 +12,7 @@ export default class Html extends React.Component {
 
     let cssLink
     if (process.env.NODE_ENV === 'production') {
-      cssLink = <link rel="stylesheet" href={link('/app.css')} />
+      cssLink = <link rel="stylesheet" href={link('/styles.css')} />
     }
 
     return (
@@ -55,10 +55,10 @@ export default class Html extends React.Component {
               }
             `
           }}/>
-          {cssLink}
         </head>
         <body>
           <div id="react-mount" dangerouslySetInnerHTML={{__html: this.props.body}} />
+          {cssLink}
           <script src={link('/bundle.js')}/>
         </body>
       </html>

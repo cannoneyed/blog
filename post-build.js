@@ -71,19 +71,21 @@ generateRssFeed = function(pages) {
   }).slice(0, 10);
   for (i = 0, len = ref.length; i < len; i++) {
     page = ref[i];
-    feed.addItem({
-      title: page.data.title,
-      link: "http://ashel.xyz" + page.path,
-      date: moment(page.data.datePublished).toDate(),
-      content: page.data.description,
-      author: [
-        {
-          name: "Alexander Shelepenok",
-          email: "alisin560@gmail.com",
-          link: "http://ashel.xyz"
-        }
-      ]
-    });
+    if (page.data.layout != 'page') {
+      feed.addItem({
+        title: page.data.title,
+        link: "http://ashel.xyz" + page.path,
+        date: moment(page.data.datePublished).toDate(),
+        content: page.data.description,
+        author: [
+          {
+            name: "Alexander Shelepenok",
+            email: "alisin560@gmail.com",
+            link: "http://ashel.xyz"
+          }
+        ]
+      });
+    }
   }
   feed.addContributor({
     name: "Alexander Shelepenok",

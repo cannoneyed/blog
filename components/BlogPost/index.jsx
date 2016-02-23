@@ -3,6 +3,7 @@ import moment from 'moment'
 import { RouteHandler, Link } from 'react-router'
 import DocumentTitle from 'react-document-title'
 import { link } from 'gatsby-helpers'
+import access from 'safe-access'
 import ReadNext from '../ReadNext'
 import { config } from 'config'
 
@@ -23,23 +24,33 @@ class BlogPost extends React.Component {
         </Link>
       </div>
     )
+
+    const description = access(post, 'description') || post.body
+
+    let inLanguage
+    if (post.lang == 'ru') {
+      inLanguage = 'Russian'
+    } else {
+      inLanguage = 'English'
+    }
+
     const jsonLD = `
       <script type="application/ld+json">
         {
             "@context": "http://schema.org",
             "@type": "Article",
+            "headline": "` + post.title + `",
+            "datePublished": "` + post.datePublished + `",
+            "dateModified": "` + post.dateModified + `",
+            "description": "` + description + `",
             "publisher": "` + config.authorName + `",
+            "inLanguage": "` + inLanguage + `",
             "author": {
                 "@type": "Person",
                 "name": "` + config.authorName + `",
                 "url": "http://ashel.xyz/",
                 "sameAs": "http://ashel.xyz/"
-            },
-            "headline": "` + post.title + `",
-            "url": "",
-            "datePublished": "` + post.datePublished + `",
-            "dateModified": "` + post.dateModified + `",
-            "description": "` + post.description + `";
+            }
         }
       </script>
     `

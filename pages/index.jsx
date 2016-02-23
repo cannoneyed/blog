@@ -82,9 +82,22 @@ class BlogIndex extends React.Component {
       }
     })
 
+    const jsonLD = `
+      <script type="application/ld+json">
+        {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Alexander Shelepenok",
+          "jobTitle": "Full Stack Web Developer",
+          "url": "http://ashel.xyz"
+        }
+      </script>
+    `
+
     return (
       <DocumentTitle title={config.blogTitle}>
         <div>
+          <div dangerouslySetInnerHTML={{__html: jsonLD}}/>
           <SidebarLeft {...this.props}/>
           <div className='content'>
             <div className='main'>

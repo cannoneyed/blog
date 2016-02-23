@@ -4,6 +4,8 @@ import { RouteHandler, Link } from 'react-router'
 import { link } from 'gatsby-helpers'
 import DocumentTitle from 'react-document-title'
 import SidebarLeft from '../SidebarLeft'
+import ContactForm from '../ContactForm'
+import access from 'safe-access'
 import { config } from 'config'
 
 import './style.css';
@@ -12,23 +14,33 @@ class BlogPage extends React.Component {
   render() {
     const { route } = this.props
     const post = route.page.data
+
+	const description = access(post, 'description') || post.body
+
+    let inLanguage
+    if (post.lang == 'ru') {
+      inLanguage = 'Russian'
+    } else {
+      inLanguage = 'English'
+    }
+
     const jsonLD = `
       <script type="application/ld+json">
         {
             "@context": "http://schema.org",
-            "@type": "Article",
-            "publisher": "` + config.authorName + `",
+            "@type": "WebPage",
             "author": {
                 "@type": "Person",
                 "name": "` + config.authorName + `",
                 "url": "http://ashel.xyz/",
                 "sameAs": "http://ashel.xyz/"
             },
-            "headline": "` + post.title + `",
-            "url": "",
-            "datePublished": "` + post.datePublished + `",
-            "dateModified": "` + post.dateModified + `",
-            "description": "` + post.description + `";
+            "mainEntity":{
+	            "@type": "` + post.pageType + `",
+	            "headline": "` + post.title + `",
+	            "inLanguage": "` + inLanguage + `",
+	            "description": "` + description + `"
+	        }
         }
       </script>
     `
@@ -43,7 +55,8 @@ class BlogPage extends React.Component {
                 <div className='blog-page'>
                   <div className='text'>
                     <h1>{post.title}</h1>
-                      <div dangerouslySetInnerHTML={{__html: post.body}}/>
+                    <div dangerouslySetInnerHTML={{__html: post.body}}/>
+                    {post.pageType == 'ContactPage'?<ContactForm />:null}
                   </div>
                 </div>
               </div>
