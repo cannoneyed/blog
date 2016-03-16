@@ -48,8 +48,8 @@ class BlogPost extends React.Component {
             "author": {
                 "@type": "Person",
                 "name": "` + config.authorName + `",
-                "url": "http://ashel.xyz/",
-                "sameAs": "http://ashel.xyz/"
+                "url": "http://ashk.io/",
+                "sameAs": "http://ashk.io/"
             }
         }
       </script>

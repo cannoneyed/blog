@@ -24,7 +24,7 @@ module.exports = function(pages, callback) {
 generateSitemap = function(pages) {
   var sitemap, i, len, page, ref;
   sitemap = sm.createSitemap({
-    hostname: 'http://ashel.xyz/',
+    hostname: 'http://ashk.io/',
     cacheTime: 600000,
     urls: [
       { url: '/' , changefreq: 'weekly', priority: 0.8 }
@@ -54,11 +54,11 @@ generateRssFeed = function(pages) {
   feed = new Feed({
     title: 'Blog by A. Shelepenok',
     description: 'A blog by Alexander Shelepenok',
-    link: 'http://ashel.xyz/',
+    link: 'http://ashk.io/',
     copyright: 'All rights reserved 2016, Alexander Shelepenok',
     author: {
       name: 'Alexander Shelepenok',
-      email: 'alisin560@gmail.com'
+      email: 'a.shelepenok@gmail.com'
     }
   });
   pages = sortBy(pages, function(page) {
@@ -74,14 +74,14 @@ generateRssFeed = function(pages) {
     if (page.data.layout != 'page') {
       feed.addItem({
         title: page.data.title,
-        link: "http://ashel.xyz" + page.path,
+        link: "http://ashk.io" + page.path,
         date: moment(page.data.datePublished).toDate(),
         content: page.data.description,
         author: [
           {
             name: "Alexander Shelepenok",
-            email: "alisin560@gmail.com",
-            link: "http://ashel.xyz"
+            email: "a.shelepenok@gmail.com",
+            link: "http://ashk.io"
           }
         ]
       });
@@ -89,8 +89,8 @@ generateRssFeed = function(pages) {
   }
   feed.addContributor({
     name: "Alexander Shelepenok",
-    email: "alisin560@gmail.com",
-    link: "http://ashel.xyz"
+    email: "a.shelepenok@gmail.com",
+    link: "http://ashk.io"
   });
   return fs.writeFileSync(__dirname + "/public/feed.xml", feed.render('rss-2.0'));
 };

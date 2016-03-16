@@ -18,7 +18,7 @@
 
 .blog-post p {
 	font-size: responsive 14px 16px;
-	line-height: 1.5;
+	line-height: 1.625;
 	margin-top: 10px;
 }
 
@@ -42,7 +42,13 @@
 	vertical-align: middle;
 	width: 23px;
 	height: 17px;
+	border-radius: 3px;
 	background-size: contain !important;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+.blog-post .flag:before {
+  content: "\00a0";
 }
 
 .blog-post .readmore {
@@ -62,10 +68,12 @@
 }
 
 .blog-single .text {
-    padding: 0 150px;
+	max-width: 45rem;
+	margin-left: auto;
+	margin-right: auto;
     margin-bottom: 20px;
     font-size: responsive 16px 18px;
-    line-height: 1.6;
+    line-height: 1.625;
 }
 
 .blog-single .text img {
@@ -74,7 +82,9 @@
 }
 
 .blog-single .footer {
-    padding: 0 150px;
+	max-width: 45rem;
+	margin-left: auto;
+	margin-right: auto;
     font-size: responsive 16px 18px;
     margin-bottom: 60px;
 }

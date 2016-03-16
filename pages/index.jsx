@@ -43,7 +43,7 @@ class BlogIndex extends React.Component {
           <div className='blog-post'>
             <span 
               style={{
-                backgroundImage: 'url(./images/' + lang + '.png)',
+                backgroundImage: 'url(./images/' + lang + '.png)'
               }}
               className='flag'>
             </span>
@@ -51,10 +51,10 @@ class BlogIndex extends React.Component {
             <span
               style={{
                 padding: '5px',
-                fontSize: '16px'
+                fontSize: '14px'
               }}
             >
-              •
+              
             </span>
             <span className='blog-category'>{category}</span>
             <h2>
@@ -89,7 +89,7 @@ class BlogIndex extends React.Component {
           "@type": "Person",
           "name": "Alexander Shelepenok",
           "jobTitle": "Full Stack Web Developer",
-          "url": "http://ashel.xyz"
+          "url": "http://ashk.io"
         }
       </script>
     `

@@ -3,7 +3,7 @@ title: My Background
 path: "/background"
 layout: page
 pageType: AboutPage
-description: "I'm a Full Stack Web Developer from Belarus, currently live in Minsk. Love to invest his time in experimental projects (JavaScript, Node.js, HTML5, CSS3, PHP, Bash)."
+description: "Hi. I'm a Full Stack Web Developer from Belarus, currently live in Minsk. Love to invest his time in experimental projects (JavaScript, Node.js, HTML5, CSS3, PHP, Bash)."
 ---
 
 I'm a Full Stack Web Developer from Belarus, currently live in Minsk. Love to invest his time in experimental projects *(JavaScript, Node.js, HTML5, CSS3, PHP, Bash)*.
