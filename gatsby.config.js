@@ -9,19 +9,19 @@ module.exports = function(config, env) {
     var is_production = env === 'production';
 
     config.merge({
-      postcss: [
-        lost(),
-        rucksack({
-          autoprefixer: true
-        })
-      ]
+        postcss: [
+            lost(),
+            rucksack({
+                autoprefixer: true
+            })
+        ]
     });
 
     config.loader('fonts', function(cfg) {
-      cfg.test = /\.(((woff|woff2|eot|ttf|svg)(\?[0-9]{8}))|(woff|woff2|eot|ttf|svg))$/;
-      cfg.loader = 'file-loader';
-      return cfg
+        cfg.test = /\.(((woff|woff2|eot|ttf|svg)(\?[0-9]{8}))|(woff|woff2|eot|ttf|svg))$/;
+        cfg.loader = 'file-loader';
+        return cfg
     });
-  
-  return config
+
+    return config
 };

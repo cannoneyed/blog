@@ -1,27 +1,22 @@
 .blog-nav {
-    margin: 20px 0px 10px;
+	margin: 20px 0px 10px;
 }
-
 .blog-nav ul {
-    list-style: none;
-    padding-left: 0;
+	list-style: none;
+	padding-left: 0;
 }
-
 .blog-nav ul li {
 	margin: 10px 0 10px;
 }
-
 .blog-nav ul li a {
 	border-bottom: 0;
 	font-weight: 600;
 	color: #1751FF;
 }
-
 .blog-nav ul li a.current {
 	color: #222;
 	border-bottom: none !important;
 }
-
 .blog-nav ul li a:hover {
 	border-bottom: 1px solid;
 }

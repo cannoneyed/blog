@@ -2,39 +2,32 @@
 	margin-bottom: 40px;
 	font-family: "Proxima Nova", Arial, sans-serif;
 }
-
 .blog-post:last-child {
 	margin-bottom: 0;
 }
-
 .blog-post h2 {
 	font-size: responsive 20px 36px;
 	margin: 5px 0 0;
 }
-
 .blog-post h2 a:hover {
 	border-bottom: 1px solid;
 }
-
 .blog-post p {
 	font-size: responsive 14px 16px;
 	line-height: 1.625;
 	margin-top: 10px;
 }
-
 .blog-post time {
 	font-weight: 600;
 	font-size: 14px;
 	text-transform: uppercase;
 }
-
 .blog-post .blog-category {
 	color: #fbc31b;
 	font-weight: 600;
 	font-size: 14px;
 	text-transform: uppercase;
 }
-
 .blog-post .flag {
 	margin-right: 7px;
 	margin-top: -3px;
@@ -44,51 +37,44 @@
 	height: 17px;
 	border-radius: 3px;
 	background-size: contain !important;
-    background-position: 50%;
-    background-repeat: no-repeat;
+	background-position: 50%;
+	background-repeat: no-repeat;
 }
 .blog-post .flag:before {
-  content: "\00a0";
+	content: "\00a0";
 }
-
 .blog-post .readmore {
 	color: #1751ff;
 	font-weight: 600;
 	font-size: responsive 14px 16px;
 }
-
 .blog-post .readmore:hover {
 	border-bottom: 1px solid !important;
 }
-
 .blog-single h1 {
-    text-align: center;
-    font-size: responsive 20px 36px;
-    line-height: 1.4;
+	text-align: center;
+	font-size: responsive 20px 36px;
+	line-height: 1.4;
 }
-
 .blog-single .text {
 	max-width: 45rem;
 	margin-left: auto;
 	margin-right: auto;
-    margin-bottom: 20px;
-    font-size: responsive 16px 18px;
-    line-height: 1.625;
+	margin-bottom: 20px;
+	font-size: responsive 16px 18px;
+	line-height: 1.625;
 }
-
 .blog-single .text img {
 	max-width: 100%;
 	height: auto;
 }
-
 .blog-single .footer {
 	max-width: 45rem;
 	margin-left: auto;
 	margin-right: auto;
-    font-size: responsive 16px 18px;
-    margin-bottom: 60px;
+	font-size: responsive 16px 18px;
+	margin-bottom: 60px;
 }
-
 .gohome {
 	position: fixed;
 	left: 20px;
@@ -100,21 +86,19 @@
 	font-weight: 600;
 	border-radius: 3px;
 }
-
 .gohome:hover {
 	color: #1c5c78;
 	background: #f3d8b3;
 }
-
-@media (max-width: 900px) {
-  .blog-single .text, .blog-single .footer {
-    padding: 0 15px;
-  }
-  .gohome {
-  	position: static;
-  	margin: 20px auto 0;
-	text-align: center;
-	width: 84px;
-	display: block;
-  }
+@media (max-width:900px) {
+	.blog-single .text, .blog-single .footer {
+		padding: 0 15px;
+	}
+	.gohome {
+		position: static;
+		margin: 20px auto 0;
+		text-align: center;
+		width: 84px;
+		display: block;
+	}
 }

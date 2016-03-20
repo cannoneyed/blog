@@ -1,12 +1,10 @@
 .github-feed {
 	padding: 0 40px 50px;
 }
-
 .github-feed h3 {
 	font-size: responsive 20px 36px;
 	margin: 0;
 }
-
 .github-feed ul {
 	padding: 0px 0px 0px 15px;
 }
@@ -17,21 +15,18 @@
 .github-feed ul > li a {
 	font-weight: 600;
 }
-
-@media (max-width: 1100px) {
-  .github-feed {
-	padding: 20px 15px 40px;
-  }
+@media (max-width:1100px) {
+	.github-feed {
+		padding: 20px 15px 40px;
+	}
 }
-
-@media (max-width: 900px) {
-  .github-feed {
-	padding: 20px 15px 40px;
-  }
+@media (max-width:900px) {
+	.github-feed {
+		padding: 20px 15px 40px;
+	}
 }
-
-@media (max-width: 500px) {
-  .github-feed {
-	padding: 20px 15px 20px;
-  }
+@media (max-width:500px) {
+	.github-feed {
+		padding: 20px 15px 20px;
+	}
 }

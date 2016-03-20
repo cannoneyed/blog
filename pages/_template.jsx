@@ -7,26 +7,26 @@ import ga from 'react-google-analytics'
 import '../static/fonts/proxima/stylesheet.css'
 
 class Template extends React.Component {
-  render() {
-    const { location, children } = this.props
+    render() {
+        const {location, children} = this.props
 
-  	var GAInitiailizer = ga.Initializer
-  	ga('create', 'UA-73379983-1', 'auto')
-	  ga('send', 'pageview')
+        var GAInitiailizer = ga.Initializer
+        ga('create', 'UA-73379983-1', 'auto')
+        ga('send', 'pageview')
 
-    return (
-      <div className='wrapper'>
-        {children}
-        <GAInitiailizer />
-      </div>
-    );
-  }
+        return (
+            <div className='wrapper'>
+              { children }
+              <GAInitiailizer />
+            </div>
+            );
+    }
 }
 
 Template.propTypes = {
-  children: React.PropTypes.any,
-  location: React.PropTypes.object,
-  route: React.PropTypes.object,
+    children: React.PropTypes.any,
+    location: React.PropTypes.object,
+    route: React.PropTypes.object,
 }
 
 export default Template
