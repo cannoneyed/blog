@@ -33,12 +33,12 @@
 		padding: 15px 20px;
 	}
 	.sidebar {
-		lost-column: 2/4;
+		lost-column: 4/12;
 	}
 }
 @media (max-width:900px) {
 	.sidebar {
-		lost-column: 5/12;
+		lost-column: 4/12;
 	}
 	.sidebar .sidebar-inner {
 		padding: 10px 20px;
@@ -46,7 +46,7 @@
 }
 @media (max-width:500px) {
 	.sidebar {
-		lost-column: 4/4;
+		lost-column: 1;
 	}
 	.sidebar .sidebar-inner {
 		padding: 5px 20px;

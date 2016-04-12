@@ -27,4 +27,7 @@
 		width: 84px;
 		display: block;
 	}
+	.blog-page ul {
+		padding-left: 15px;
+	}
 }

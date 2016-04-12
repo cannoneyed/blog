@@ -9,7 +9,7 @@ import '../../static/fonts/hyperico/style.css'
 class BlogSocial extends React.Component {
     render() {
 
-        const twitter = config.blogTitle
+        const twitter = config.twitter
         const vk = config.vk
         const rss = config.rss
         const email = config.email

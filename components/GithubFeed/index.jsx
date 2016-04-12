@@ -27,37 +27,37 @@ class GithubFeed extends React.Component {
               <ul>
                 <li>
                   <p>
-                    <a target="_blank" href="https://github.com/hb-gatsby/gatsby-lumen-starter">gatsby-lumen-starter</a><span>—</span><span>Simple starter for Gatsby</span><span>.</span>
+                    <a target="_blank" href="https://github.com/hb-gatsby/gatsby-starter-lumen">gatsby-starter-lumen</a> <span>—</span> <span>Simple starter for Gatsby</span><span>.</span>
                   </p>
                 </li>
                 <li>
                   <p>
-                    <a target="_blank" href="https://github.com/wpioneer/mysites-blog">mysites-blog</a><span>—</span><span>Build with Gatsby (React, Webpack, PostCSS)</span><span>.</span>
+                    <a target="_blank" href="https://github.com/wpioneer/mysites-blog">mysites-blog</a> <span>—</span> <span>Build with Gatsby (React, Webpack, PostCSS)</span><span>.</span>
                   </p>
                 </li>
                 <li>
                   <p>
-                    <a target="_blank" href="https://github.com/wpioneer/nginx-varnish-wordpress">nginx-varnish-wordpress</a><span>—</span><span>Nginx Tuning For Best Performance</span><span>.</span>
+                    <a target="_blank" href="https://github.com/wpioneer/nginx-varnish-wordpress">nginx-varnish-wordpress</a> <span>—</span> <span>Nginx Tuning For Best Performance</span><span>.</span>
                   </p>
                 </li>
                 <li>
                   <p>
-                    <a target="_blank" href="https://github.com/wpioneer/wptemplate-hbstarter">wptemplate-hbstarter</a><span>—</span><span>Starter theme for WordPress with Gulp, Sass, and Bower</span><span>.</span>
+                    <a target="_blank" href="https://github.com/wpioneer/wptemplate-hbstarter">wptemplate-hbstarter</a> <span>—</span> <span>Starter theme for WordPress with Gulp, Sass, and Bower</span><span>.</span>
                   </p>
                 </li>
                 <li>
                   <p>
-                    <a target="_blank" href="https://github.com/wpioneer/telescope-thumbnailurl">telescope-thumbnailurl</a><span>—</span><span>Telescope Thumbnail Url package</span><span>.</span>
+                    <a target="_blank" href="https://github.com/wpioneer/telescope-thumbnailurl">telescope-thumbnailurl</a> <span>—</span> <span>Telescope Thumbnail Url package</span><span>.</span>
                   </p>
                 </li>
                 <li>
                   <p>
-                    <a target="_blank" href="https://github.com/wpioneer/telescope-looknows">telescope-looknows</a><span>—</span><span>Telescope Looknows Theme Package</span><span>.</span>
+                    <a target="_blank" href="https://github.com/wpioneer/telescope-looknows">telescope-looknows</a> <span>—</span> <span>Telescope Looknows Theme Package</span><span>.</span>
                   </p>
                 </li>
                 <li>
                   <p>
-                    <a target="_blank" href="https://github.com/wpioneer/wpplugin-slidingtags">wpplugin-slidingtags</a><span>—</span><span>Sliding Tags widget for WordPress</span><span>.</span>
+                    <a target="_blank" href="https://github.com/wpioneer/wpplugin-slidingtags">wpplugin-slidingtags</a> <span>—</span> <span>Sliding Tags widget for WordPress</span><span>.</span>
                   </p>
                 </li>
               </ul>
