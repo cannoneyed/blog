@@ -44,10 +44,12 @@ generateSitemap = function(pages) {
     }).slice(0, 10);
     for (i = 0, len = ref.length; i < len; i++) {
         page = ref[i];
-        sitemap.add({
-            url: page.path,
-            priority: 0.7
-        });
+        if (page.data.path != '404.html') {
+            sitemap.add({
+                url: page.path,
+                priority: 0.7
+            });
+        }
     }
 
     return fs.writeFileSync(__dirname + "/public/sitemap.xml", sitemap.toString());
@@ -75,7 +77,7 @@ generateRssFeed = function(pages) {
     }).slice(0, 10);
     for (i = 0, len = ref.length; i < len; i++) {
         page = ref[i];
-        if (page.data.layout != 'page') {
+        if (page.data.layout != 'page' && page.data.path != '404.html') {
             feed.addItem({
                 title: page.data.title,
                 link: "http://ashk.io" + page.path,

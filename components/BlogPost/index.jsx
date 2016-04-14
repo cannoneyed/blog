@@ -2,7 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import { RouteHandler, Link } from 'react-router'
 import DocumentTitle from 'react-document-title'
-import { link } from 'gatsby-helpers'
+import { prefixLink } from 'gatsby-helpers'
 import access from 'safe-access'
 import ReadNext from '../ReadNext'
 import { config } from 'config'
@@ -16,7 +16,7 @@ class BlogPost extends React.Component {
         const post = route.page.data
         const home = (
         <div>
-          <Link className='gohome' to={ link('/') }> All Articles
+          <Link className='gohome' to={ prefixLink('/') }> All Articles
           </Link>
         </div>
         )

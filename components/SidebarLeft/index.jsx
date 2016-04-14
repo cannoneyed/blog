@@ -1,6 +1,6 @@
 import React from 'react'
 import { RouteHandler, Link } from 'react-router'
-import { link } from 'gatsby-helpers'
+import { prefixLink } from 'gatsby-helpers'
 import BlogNav from '../BlogNav'
 import BlogSocial from '../BlogSocial'
 import { config } from 'config'
@@ -9,21 +9,21 @@ import './style.css'
 class SidebarLeft extends React.Component {
     render() {
         const {location, children} = this.props
-        const isHome = location.pathname === link('/')
+        const isHome = location.pathname === prefixLink('/')
 
         let header = (
         <header>
-          <Link style={ {    textDecoration: 'none',    borderBottom: 'none',    outline: 'none'} } to={ link('/') }>
-          <img src='./images/photo.png'
-            srcSet="./images/photo@2x.png 2x"
+          <Link style={ {    textDecoration: 'none',    borderBottom: 'none',    outline: 'none'} } to={ prefixLink('/') }>
+          <img src={ prefixLink('./images/photo.png') }
+            srcSet={ prefixLink('./images/photo@2x.png 2x') }
             width='100'
             height='100'
             style={ {    marginBottom: '15px',    borderRadius: '5%',    backgroundClip: 'padding-box'} } />
           </Link>
           { isHome ? (
-            <h1><Link style={ {    textDecoration: 'none',    borderBottom: 'none',    color: 'inherit'} } to={ link('/') }> { config.blogTitle } </Link></h1>
+            <h1><Link style={ {    textDecoration: 'none',    borderBottom: 'none',    color: 'inherit'} } to={ prefixLink('/') }> { config.blogTitle } </Link></h1>
             ) :
-            <h2><Link style={ {    textDecoration: 'none',    borderBottom: 'none',    color: 'inherit'} } to={ link('/') }> { config.blogTitle } </Link></h2> }
+            <h2><Link style={ {    textDecoration: 'none',    borderBottom: 'none',    color: 'inherit'} } to={ prefixLink('/') }> { config.blogTitle } </Link></h2> }
           <p>
             { config.blogDescr }
           </p>

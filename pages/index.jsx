@@ -1,12 +1,13 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import { Link } from 'react-router'
 import sortBy from 'lodash/sortBy'
-import moment from 'moment';
+import moment from 'moment'
 import duration from 'moment-duration-format'
-// import Fetch from 'react-fetch';
 import DocumentTitle from 'react-document-title'
-import { link } from 'gatsby-helpers'
+import { prefixLink } from 'gatsby-helpers'
 import access from 'safe-access'
+import include from 'underscore.string/include'
 import { config } from 'config'
 
 import BlogPost from '../components/BlogPost'
@@ -14,14 +15,20 @@ import SidebarLeft from '../components/SidebarLeft'
 import BlogContent from '../components/BlogContent'
 import GithubFeed from '../components/GithubFeed'
 
-/* 
-  Data Fetching
-  <Fetch url="https://api.github.com/users/wpioneer/repos?per_page=30&sort=created&direction=desc">
-  <GithubFeed/>
-  </Fetch>
-*/
-
 class BlogIndex extends React.Component {
+    componentDidMount() {
+        var Fetch = require('../utils/Fetch')
+
+        var gfContainer = (
+        <div>
+          <Fetch url='//api.github.com/users/wpioneer/repos?per_page=30&sort=created&direction=desc'>
+            <GithubFeed />
+          </Fetch>
+        </div>
+        )
+
+        ReactDOM.render(gfContainer, ReactDOM.findDOMNode(this.refs.github))
+    }
     render() {
 
         const pageLinks = []
@@ -29,7 +36,8 @@ class BlogIndex extends React.Component {
         ).reverse()
 
         sortedPages.forEach((page) => {
-            if (access(page, 'file.ext') === 'md' && access(page, 'data.layout') != 'page') {
+            if (access(page, 'file.ext') === 'md' && !include(page.path, '/404') && !include(page.data.layout, 'page')) {
+
                 const title = access(page, 'data.title') || page.path
                 const description = access(page, 'data.description')
                 const lang = access(page, 'data.lang') || 'en'
@@ -47,9 +55,9 @@ class BlogIndex extends React.Component {
                       </time>
                       <span style={ {    padding: '5px',    fontSize: '14px'} }></span>
                       <span className='blog-category'>{ category }</span>
-                      <h2><Link style={ {    borderBottom: 'none',} } to={ link(page.path) } > { title } </Link></h2>
+                      <h2><Link style={ {    borderBottom: 'none',} } to={ prefixLink(page.path) } > { title } </Link></h2>
                       <p dangerouslySetInnerHTML={ {    __html: description} } />
-                      <Link style={ {    borderBottom: 'none'} } className='readmore' to={ link(page.path) }> Read
+                      <Link style={ {    borderBottom: 'none'} } className='readmore' to={ prefixLink(page.path) }> Read
                       { readTime }
                       </Link>
                     </div>
@@ -80,7 +88,7 @@ class BlogIndex extends React.Component {
                       { pageLinks }
                     </div>
                   </div>
-                  <GithubFeed/>
+                  <div ref='github' />
                 </div>
               </div>
             </DocumentTitle>

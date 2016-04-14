@@ -1,6 +1,4 @@
 import React from 'react'
-import { RouteHandler, Link } from 'react-router'
-import { link } from 'gatsby-helpers'
 import { config } from 'config'
 
 import './style.css'

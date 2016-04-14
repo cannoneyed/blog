@@ -1,6 +1,6 @@
 import React from 'react'
 import { RouteHandler, Link } from 'react-router'
-import { link } from 'gatsby-helpers'
+import { prefixLink } from 'gatsby-helpers'
 
 import './style.css'
 
@@ -11,15 +11,15 @@ class BlogNav extends React.Component {
             <nav className='blog-nav'>
               <ul>
                 <li>
-                  <Link to="/" className={ location.pathname === link('/') ? "current" : null }> Home
+                  <Link to="/" className={ location.pathname === prefixLink('/') ? "current" : null }> Home
                   </Link>
                 </li>
                 <li>
-                  <Link to="/background" className={ location.pathname === link('/background') ? "current" : null }> Background
+                  <Link to="/background" className={ location.pathname === prefixLink('/background') ? "current" : null }> Background
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contacts" className={ location.pathname === link('/contacts') ? "current" : null }> Contacts
+                  <Link to="/contacts" className={ location.pathname === prefixLink('/contacts') ? "current" : null }> Contacts
                   </Link>
                 </li>
               </ul>

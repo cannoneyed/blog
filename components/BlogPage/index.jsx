@@ -1,7 +1,4 @@
 import React from 'react'
-import moment from 'moment'
-import { RouteHandler, Link } from 'react-router'
-import { link } from 'gatsby-helpers'
 import DocumentTitle from 'react-document-title'
 import SidebarLeft from '../SidebarLeft'
 import access from 'safe-access'
@@ -24,25 +21,25 @@ class BlogPage extends React.Component {
         }
 
         const jsonLD = `
-			<script type="application/ld+json">
-				{
-						"@context": "http://schema.org",
-						"@type": "WebPage",
-						"author": {
-								"@type": "Person",
-								"name": "` + config.authorName + `",
-								"url": "http://ashk.io/",
-								"sameAs": "http://ashk.io/"
-						},
-						"mainEntity":{
-							"@type": "` + post.pageType + `",
-							"headline": "` + post.title + `",
-							"inLanguage": "` + inLanguage + `",
-							"description": "` + description + `"
-					}
-				}
-			</script>
-		`
+      <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebPage",
+            "author": {
+                "@type": "Person",
+                "name": "` + config.authorName + `",
+                "url": "http://ashk.io/",
+                "sameAs": "http://ashk.io/"
+            },
+            "mainEntity":{
+              "@type": "` + post.pageType + `",
+              "headline": "` + post.title + `",
+              "inLanguage": "` + inLanguage + `",
+              "description": "` + description + `"
+          }
+        }
+      </script>
+    `
 
         return (
             <div>
