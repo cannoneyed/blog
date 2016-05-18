@@ -1,13 +1,13 @@
-import React from 'react';
-import './style.css';
+import React from 'react'
+import './style.css'
 
 class GithubFeed extends React.Component {
     render() {
 
         const repos = this.props
-        let githubFeed = []
+        const githubFeed = []
 
-        /* added other Projects */
+        /* add other Projects */
         githubFeed.push(
             <li>
               <p>
@@ -17,13 +17,13 @@ class GithubFeed extends React.Component {
             </li>
         )
 
-        /*added Projects from API*/
+        /*add Projects from API*/
         for (var i in repos) {
             if (repos[i].fork != true) {
                 githubFeed.push(
                     <li>
                       <p>
-                        <a href={ repos[i].url }>
+                        <a href={ repos[i].html_url }>
                           { repos[i].name }
                         </a>
                         <span>&nbsp;—&nbsp; { repos[i].description }.</span>

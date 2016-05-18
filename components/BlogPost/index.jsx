@@ -16,7 +16,7 @@ class BlogPost extends React.Component {
         const post = route.page.data
         const home = (
         <div>
-          <Link className='gohome' to={ prefixLink('/') }> All Articles
+          <Link className='gohome' to={ prefixLink('/articles/') }> All Articles
           </Link>
         </div>
         )
@@ -31,25 +31,25 @@ class BlogPost extends React.Component {
         }
 
         const jsonLD = `
-						<script type="application/ld+json">
-								{
-												"@context": "http://schema.org",
-												"@type": "Article",
-												"headline": "` + post.title + `",
-												"datePublished": "` + post.datePublished + `",
-												"dateModified": "` + post.dateModified + `",
-												"description": "` + description + `",
-												"publisher": "` + config.authorName + `",
-												"inLanguage": "` + inLanguage + `",
-												"author": {
-																"@type": "Person",
-																"name": "` + config.authorName + `",
-																"url": "http://ashk.io/",
-																"sameAs": "http://ashk.io/"
-												}
-								}
-						</script>
-				`
+            <script type="application/ld+json">
+                {
+                        "@context": "http://schema.org",
+                        "@type": "Article",
+                        "headline": "` + post.title + `",
+                        "datePublished": "` + post.datePublished + `",
+                        "dateModified": "` + post.dateModified + `",
+                        "description": "` + description + `",
+                        "publisher": "` + config.authorName + `",
+                        "inLanguage": "` + inLanguage + `",
+                        "author": {
+                                "@type": "Person",
+                                "name": "` + config.authorName + `",
+                                "url": "http://ashk.io/",
+                                "sameAs": "http://ashk.io/"
+                        }
+                }
+            </script>
+        `
         return (
             <div>
               <div dangerouslySetInnerHTML={ {    __html: jsonLD} } />

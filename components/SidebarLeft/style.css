@@ -17,7 +17,8 @@
 	bottom: 0;
 }
 .sidebar .sidebar-inner h1, .sidebar .sidebar-inner h2 {
-	font-size: responsive 16px 18px;
+	font-size: 18px;
+	font-weight: 500;
 	margin: 5px 0;
 }
 .sidebar .sidebar-inner p {

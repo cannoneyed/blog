@@ -1,7 +1,5 @@
 var rucksack = require('rucksack-css')
 var lost = require("lost")
-var webpack = require('webpack')
-var path = require("path")
 
 exports.modifyWebpackConfig = function(config, env) {
     var is_static = env === 'static'
@@ -11,9 +9,7 @@ exports.modifyWebpackConfig = function(config, env) {
     config.merge({
         postcss: [
             lost(),
-            rucksack({
-                autoprefixer: true
-            })
+            rucksack()
         ]
     });
 

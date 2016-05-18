@@ -2,6 +2,8 @@ import React from 'react'
 import DocumentTitle from 'react-document-title'
 import { prefixLink } from 'gatsby-helpers'
 
+const BUILD_TIME = new Date().getTime()
+
 module.exports = React.createClass({
     displayName: 'HTML',
     propTypes: {
@@ -11,9 +13,22 @@ module.exports = React.createClass({
         const {body} = this.props
         const title = DocumentTitle.rewind()
 
-        let cssLink
+        const font = `
+                          WebFontConfig = {
+                            google: { families: [ 'Roboto:400,500,700:latin,cyrillic' ] }
+                          };
+                          (function() {
+                            var wf = document.createElement('script');
+                            wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+                            wf.type = 'text/javascript';
+                            wf.async = 'true';
+                            var s = document.getElementsByTagName('script')[0];
+                            s.parentNode.insertBefore(wf, s);
+                          })();
+                      `
+        let css
         if (process.env.NODE_ENV === 'production') {
-            cssLink = <link rel="stylesheet" href={ prefixLink('/styles.css') } />
+            css = <style dangerouslySetInnerHTML={ {    __html: require('!raw!./public/styles.css')} } />
         }
 
         return (
@@ -28,8 +43,9 @@ module.exports = React.createClass({
             </head>
             <body>
               <div id="react-mount" dangerouslySetInnerHTML={ {    __html: this.props.body} } />
-              { cssLink }
-              <script src={ prefixLink('/bundle.js') } />
+              { css }
+              <script dangerouslySetInnerHTML={ {    __html: font} } />
+              <script src={ prefixLink(`/bundle.js?t=${BUILD_TIME}`) } />
             </body>
             </html>
         )

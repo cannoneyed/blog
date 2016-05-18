@@ -15,11 +15,15 @@ class BlogNav extends React.Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/background" className={ location.pathname === prefixLink('/background') ? "current" : null }> Background
+                  <Link to="/background/" className={ location.pathname === prefixLink('/background/') ? "current" : null }> Background
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contacts" className={ location.pathname === prefixLink('/contacts') ? "current" : null }> Contacts
+                  <Link to="/articles/" className={ location.pathname === prefixLink('/articles/') ? "current" : null }> Articles
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contacts/" className={ location.pathname === prefixLink('/contacts/') ? "current" : null }> Contacts
                   </Link>
                 </li>
               </ul>

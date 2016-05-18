@@ -1,12 +1,12 @@
 .blog-post {
 	margin-bottom: 40px;
-	font-family: "Proxima Nova", Arial, sans-serif;
+	font-family: "Roboto", Arial, sans-serif;
 }
 .blog-post:last-child {
 	margin-bottom: 0;
 }
 .blog-post h2 {
-	font-size: responsive 20px 36px;
+	font-size: responsive 20px 34px;
 	margin: 5px 0 0;
 }
 .blog-post h2 a:hover {
@@ -18,34 +18,19 @@
 	margin-top: 10px;
 }
 .blog-post time {
-	font-weight: 600;
+	font-weight: 500;
 	font-size: 14px;
 	text-transform: uppercase;
 }
 .blog-post .blog-category {
 	color: #fbc31b;
-	font-weight: 600;
+	font-weight: 500;
 	font-size: 14px;
 	text-transform: uppercase;
 }
-.blog-post .flag {
-	margin-right: 7px;
-	margin-top: -3px;
-	display: inline-block;
-	vertical-align: middle;
-	width: 23px;
-	height: 17px;
-	border-radius: 3px;
-	background-size: contain !important;
-	background-position: 50%;
-	background-repeat: no-repeat;
-}
-.blog-post .flag:before {
-	content: "\00a0";
-}
 .blog-post .readmore {
 	color: #1751ff;
-	font-weight: 600;
+	font-weight: 500;
 	font-size: responsive 14px 16px;
 }
 .blog-post .readmore:hover {
@@ -81,14 +66,20 @@
 	text-align: center;
 	border: none !important;
 	padding: 8px 16px;
-	color: #606578;
-	background: #f4edde;
-	font-weight: 600;
+	color: #999;
+	background: #f4f4f4;
+	font-weight: 400;
 	border-radius: 3px;
 }
 .gohome:hover {
-	color: #1c5c78;
-	background: #f3d8b3;
+	color: #444;
+	background: #f4f4f4;
+}
+.coming-soon {
+	text-align: center;
+	font-weight: bold;
+	color: #ddd;
+	font-size: 36px;
 }
 @media (max-width:900px) {
 	.blog-single .text, .blog-single .footer {

@@ -4,7 +4,7 @@ import { prefixLink } from 'gatsby-helpers'
 import { config } from 'config'
 import ga from 'react-google-analytics'
 
-import '../static/fonts/proxima/stylesheet.css'
+import '../static/css/base.css'
 
 class Template extends React.Component {
     render() {

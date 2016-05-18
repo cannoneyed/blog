@@ -6,11 +6,11 @@
 	padding-left: 0;
 }
 .blog-nav ul li {
-	margin: 10px 0 10px;
+	margin: 10px 0 13px;
 }
 .blog-nav ul li a {
 	border-bottom: 0;
-	font-weight: 600;
+	font-weight: 400;
 	color: #1751FF;
 }
 .blog-nav ul li a.current {

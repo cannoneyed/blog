@@ -1,0 +1,55 @@
+.pocket-feed {
+	padding: 0;
+	min-height: 500px;
+	margin-bottom: 20px;
+}
+.pocket-feed h3 {
+	font-size: 36px;
+	margin: 0 0 20px;
+}
+.pocket-feed__row {
+	clear: fix;
+}
+.pocket-feed__cell {
+	lost-column: 1/3;
+	margin-bottom: 15px;
+	clear: fix;
+}
+.pocket-feed__thumbnail {
+	border: 0;
+	overflow: hidden;
+	position: relative;
+	display: block;
+	border-radius: 6px;
+	height: 150px;
+	text-decoration: none;
+}
+.pocket-feed__thumbnail:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	background: linear-gradient(135deg, rgba(234, 72, 204, 0.2) 0%, rgba(105, 91, 190, 0.2) 67%, rgba(42, 100, 183, 0.3) 100%);
+}
+.pocket-feed__thumbnail img {
+	width: auto;
+	height: 150px;
+}
+.pocket-feed__heading {
+	margin: 10px 0;
+	line-height: 1.625;
+	text-align: left;
+	font-size: 16px;
+	font-weight: 400;
+}
+.pocket-feed__heading a {
+	color: #222;
+	text-decoration: none;
+	border: 0;
+}
+.pocket-feed__heading a:hover {
+	border-bottom: 1px solid #222;
+}

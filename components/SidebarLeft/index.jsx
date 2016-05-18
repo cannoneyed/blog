@@ -13,13 +13,6 @@ class SidebarLeft extends React.Component {
 
         let header = (
         <header>
-          <Link style={ {    textDecoration: 'none',    borderBottom: 'none',    outline: 'none'} } to={ prefixLink('/') }>
-          <img src={ prefixLink('./images/photo.png') }
-            srcSet={ prefixLink('./images/photo@2x.png 2x') }
-            width='100'
-            height='100'
-            style={ {    marginBottom: '15px',    borderRadius: '5%',    backgroundClip: 'padding-box'} } />
-          </Link>
           { isHome ? (
             <h1><Link style={ {    textDecoration: 'none',    borderBottom: 'none',    color: 'inherit'} } to={ prefixLink('/') }> { config.blogTitle } </Link></h1>
             ) :

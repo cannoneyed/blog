@@ -1,7 +1,9 @@
 import React from 'react'
 
-import fetch_ from 'isomorphic-fetch';
-var fetch = fetch_.bind(undefined);
+//this is to hack around a bug, see:
+//https://github.com/matthew-andrews/isomorphic-fetch/pull/20
+//import fetch from 'isomorphic-fetch'
+import fetch from 'isomorphic-fetch';
 
 export default class Fetch extends React.Component {
 
