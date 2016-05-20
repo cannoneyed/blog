@@ -9,10 +9,9 @@ import SidebarLeft from '../components/SidebarLeft'
 import GithubFeed from '../components/GithubFeed'
 import PocketFeed from '../components/PocketFeed'
 
-import Fetch from '../utils/Fetch'
-
 class BlogIndex extends React.Component {
     componentDidMount() {
+        const Fetch = require('../utils/Fetch')
         const pfContainer = (
         <div>
           <Fetch url='//api.ashk.io/feed/bookmarks'>

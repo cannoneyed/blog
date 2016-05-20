@@ -9,6 +9,7 @@ class PocketFeed extends React.Component {
         const pocketFeed = []
 
         for (var i in bookmarks) {
+            if (i == 6) break
             if (bookmarks[i].Thumbnail.length != 0) {
                 pocketFeed.push(
                     <div className="pocket-feed__cell">
