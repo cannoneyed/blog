@@ -21,3 +21,5 @@ exports.modifyWebpackConfig = function(config, env) {
 
     return config
 };
+
+exports.postBuild = require('./post-build')

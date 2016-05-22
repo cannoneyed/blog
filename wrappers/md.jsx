@@ -1,8 +1,8 @@
 import React from 'react'
 import DocumentTitle from 'react-document-title'
+import { config } from 'config'
 import BlogPost from '../components/BlogPost'
 import BlogPage from '../components/BlogPage'
-import { config } from 'config'
 
 class MarkdownWrapper extends React.Component {
     render() {
