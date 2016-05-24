@@ -16,7 +16,7 @@ description: "Не так давно решил, что нужно всё так
 
 В своем блоге я уже использовал несколько плагинов. Например, **LOST** (построение всевозможных сеток), а так же **Rucksack CSS** (адаптивная типографика и нативный clearfix).
 
-[Rucksack CSS](https://simplaio.github.io/rucksack/) -- модуль PostCSS, представляет собой мешок крутых css-штук, которые делают разработку менее болезненной, что особенно важно в столь динамичном мире Front End.
+<a href="https://simplaio.github.io/rucksack/" title="Rucksack CSS" target="_blank">Rucksack CSS</a> -- модуль PostCSS, представляет собой мешок крутых css-штук, которые делают разработку менее болезненной, что особенно важно в столь динамичном мире Front End.
 
 Установка
 --------
@@ -60,7 +60,7 @@ module.exports = {
 
 Думаю, всё понятно. В блоке postcss мы так же включаем **Rucksack Autoprefixer**. При последующей сборке все свойства Rucksack будут обработаны, а на выходе мы получим кроссбраузерые стили (styles.css).
 
-Интеграция с **Gulp**. Используйте [gulp-rucksack](https://github.com/simplaio/gulp-rucksack)
+Интеграция с **Gulp**. Используйте <a href="https://github.com/simplaio/gulp-rucksack" title="gulp-rucksack" target="_blank">gulp-rucksack</a>
 
 ```
 var gulp = require('gulp');
@@ -73,7 +73,7 @@ gulp.task('rucksack', function() {
 });
 ```
 
-Интеграция с **Grunt**. Используйте [grunt-rucksack](https://github.com/simplaio/grunt-rucksack)
+Интеграция с **Grunt**. Используйте <a href="https://github.com/simplaio/grunt-rucksack" title="grunt-rucksack" target="_blank">grunt-rucksack</a>
 
 ```
 require('load-grunt-tasks')(grunt);
@@ -90,14 +90,14 @@ grunt.initConfig({
 grunt.registerTask('default', ['rucksack']);
 ```
 
-Интеграция с **Broccoli**. Используйте [broccoli-rucksack](https://github.com/simplaio/broccoli-rucksack)
+Интеграция с **Broccoli**. Используйте <a href="https://github.com/simplaio/broccoli-rucksack" title="broccoli-rucksack" target="_blank">broccoli-rucksack</a>
 
 ```
 var rucksack = require('broccoli-rucksack');
 tree = rucksack(tree, [options]);
 ```
 
-Для интеграции со **Stylus** можно воспользоваться плагином [PostStylus](https://github.com/seaneking/poststylus)
+Для интеграции со **Stylus** можно воспользоваться плагином <a href="https://github.com/seaneking/poststylus" title="PostStylus" target="_blank">PostStylus</a>
 
 ```
 stylus(css).use(poststylus('rucksack-css'))
@@ -186,7 +186,7 @@ html {
 
 #### Вывод
 
-Мы получаем font-size с использованием Calc, а так же размеры vw. Кроме этого, есть медиазапросы.
+Мы получаем `font-size` с использованием Calc, а так же размеры `vw`. Кроме этого, есть медиазапросы.
 
 ```
 html {

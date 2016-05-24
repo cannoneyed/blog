@@ -10,7 +10,7 @@ module.exports = React.createClass({
         body: React.PropTypes.string,
     },
     render() {
-        const {body} = this.props
+        const {body, route} = this.props
         const title = DocumentTitle.rewind()
 
         const font = `
