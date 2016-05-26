@@ -27,15 +27,15 @@ class BlogPage extends React.Component {
             "@type": "WebPage",
             "author": {
                 "@type": "Person",
-                "name": "` + config.authorName + `",
+                "name": "${config.authorName}",
                 "url": "http://ashk.io/",
                 "sameAs": "http://ashk.io/"
             },
             "mainEntity":{
-              "@type": "` + post.pageType + `",
-              "headline": "` + post.title + `",
-              "inLanguage": "` + inLanguage + `",
-              "description": "` + description + `"
+              "@type": "${post.pageType}",
+              "headline": "${post.title}",
+              "inLanguage": "${inLanguage}",
+              "description": "${description}"
           }
         }
       </script>

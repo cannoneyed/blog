@@ -35,15 +35,15 @@ class BlogPost extends React.Component {
                 {
                         "@context": "http://schema.org",
                         "@type": "Article",
-                        "headline": "` + post.title + `",
-                        "datePublished": "` + post.datePublished + `",
-                        "dateModified": "` + post.dateModified + `",
-                        "description": "` + description + `",
-                        "publisher": "` + config.authorName + `",
-                        "inLanguage": "` + inLanguage + `",
+                        "headline": "${post.title}",
+                        "datePublished": "${post.datePublished}",
+                        "dateModified": "${post.dateModified}",
+                        "description": "${description}",
+                        "publisher": "${config.authorName}",
+                        "inLanguage": "${inLanguage}",
                         "author": {
                                 "@type": "Person",
-                                "name": "` + config.authorName + `",
+                                "name": "${config.authorName}",
                                 "url": "http://ashk.io/",
                                 "sameAs": "http://ashk.io/"
                         }

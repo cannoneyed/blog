@@ -1,0 +1,141 @@
+---
+title: 'Кеширование объектов в Go'
+datePublished: "2016-05-22T23:46:37.121Z"
+dateModified: "2016-05-22T23:46:37.121Z"
+lang: ru
+layout: post
+path: "/articles/examples/golang-json-cache/"
+category: "Go, Examples"
+description: "В одном из проектов мне приходилось выполнять различные манипуляции с JSON, а затем рендерить. Время ответа веб-сервера стремилось к пяти секундам, но после реализации кеширования удалось сократить до двухсот милисекунд."
+
+---
+
+<img src="./golang.jpg" alt="Golang" width="250px" style="float: right" />
+
+В одном из проектов мне приходилось выполнять различные манипуляции с JSON, а затем рендерить. Время ответа веб-сервера было велико и стремилось к пяти секундам, но после реализации кеширования удалось сократить до двухсот милисекунд.
+
+Основное преимущество данного алгоритма в том, что веб-сервер отвечает без блокировки(задержки) на генерацию кеша, если срок его действия истек.
+
+Для начала выполним `go get github.com/pmylund/go-cache` и `go get github.com/unrolled/render` из консоли, а затем импортируем пакеты. Ключевое звено в кешировании — пакет <a href="go-cache" title="caching in Golang" target="_blank">go-cache</a>, который представляет собой **key:value** хранилище. Одним из преимуществ **go-cache** является возможность записывать [!!!!!!!].
+```
+package main
+
+import (
+	"encoding/json"
+	gocache "github.com/pmylund/go-cache"
+	"github.com/unrolled/render"
+	"net/http"
+	"time"
+)
+```
+
+Инициализируем новый объект со сроком действия пять минут [!!!!!!!].
+```
+var (
+	cache = gocache.New(5*time.Minute, 30*time.Second)
+)
+```
+
+В качестве необязательного примера добавим новую структуру.
+```
+type Data struct {
+	Name        string `json:"name"`
+	Description string `json:"description"`
+}
+```
+
+Функция **getJson()** для декодирования JSON. На входе тип **interface{}** и URL типа **string**.
+Как вы уже заметили, используем **Decode** вместо **Unmarshal**, так как последнее лучше для статики.
+```
+func getJson(this interface{}, url string) error {
+	res, err := http.Get(url)
+	if err != nil {
+		return err
+	}
+	defer res.Body.Close()
+
+	return json.NewDecoder(res.Body).Decode(this)
+}
+```
+
+Самое главное
+--------
+Немного ниже функция-прокладка для кеширования результатов инициализации **getJson()**.
+На входе структура **Data** и **URL** типа **string**, на выходе **interface{}** и тип **bool**.
+
+Если ключ *data* найден и срок действия не истек, то записываем/обновляем ключ *data_tmp* с неограниченным сроком действия и возвращаем закешированный ответ из *data*.
+
+Иначе, если ключ *data* не найден или срок действия истек, но найден *data_tmp*, то во втором потоке инициализируем **getJson()** и обновляем ключ *data*. При этом возвращаем закешированный ответ из *data_tmp*.
+
+В другом случае, если ключи ни *data*, ни *data_tmp* не найдены, то инициализируем **getJson(this, url)** записываем кеш. Эти действия вызовут небольшую задержку, но, думаю, что это не страшно, так как бывает всего один раз (при каждом запуске веб-сервера).
+
+```
+func loadData(this *Data, url string) (interface{}, bool) {
+	if cached, found := cache.Get("data"); found {
+		cache.Set("data_tmp", cached, gocache.NoExpiration)
+		return cached, found
+	}
+
+	if cached_tmp, found_tmp := cache.Get("data_tmp"); found_tmp {
+		go func() {
+			getJson(this, url)
+			cache.Set("data", this, gocache.DefaultExpiration)
+		}()
+		return cached_tmp, found_tmp
+	}
+
+	getJson(this, url)
+	cache.Set("data", this, gocache.DefaultExpiration)
+
+	return this, false
+}
+```
+
+Добавим простую функцию для установки новых заголовков в ответ.
+Особое внимание стоит уделить **Access-Control-Allow-Origin** и **Access-Control-Allow-Methods**, здесь можно разрешить доступ с определенных доменов и установить допустимые методы, о чем было в предыдущем <a href="http://ashk.io/articles/examples/golang-cors-proxy/" title="Разработка CORS веб-сервера на Go" target="_blank">посте</a>.
+```
+func setDefaultHeaders(w http.ResponseWriter) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET")
+	w.Header().Set("Cache-Control", "no-store, no-cache, must-revalidate, post-check=0, pre-check=0")
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.Header().Set("Vary", "Accept-Encoding")
+}
+```
+
+Добавляем функцию **setCacheHeader()** для того, что бы в заголовке ответа выводить статус. Если ответ кеширован, то **X-Cache**: *HIT*, иначе *MISS*. Для этого нам и понадобился тип **bool** в функции **loadData()**.
+```
+func setCacheHeader(w http.ResponseWriter, found bool) {
+	v := "MISS"
+	if found {
+		v = "HIT"
+	}
+	w.Header().Set("X-Cache", v)
+}
+```
+
+В функции **main()**, как правило, инициализация других фукций, рендеринг и запуск веб-сервера.
+```
+func main() {
+	render := render.New()
+	mux := http.NewServeMux()
+
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		setDefaultHeaders(w)
+
+		data := new(Data)
+		url := ""
+
+		res, found := loadData(data, url)
+		setCacheHeader(w, found)
+
+		render.JSON(w, http.StatusOK, res)
+	})
+
+	http.ListenAndServe(":8000", mux)
+}
+```
+
+На этом всё, надеюсь этот код натолкнул вас на мысли.
+
+Если хотите сохранить код на будущее, то его можно найти на <a href="https://gist.github.com/wpioneer/aad6e11226563e6e52c3696fc8edd1c2" title="Golang JSON Cache" target="_blank">Github Gist</a>.
