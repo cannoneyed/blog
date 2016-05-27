@@ -10,10 +10,11 @@ class SidebarLeft extends React.Component {
     render() {
         const {location, children} = this.props
         const isHome = location.pathname === prefixLink('/')
+        const isArticles = location.pathname === prefixLink('/articles/')
 
         let header = (
         <header>
-          { isHome ? (
+          { isHome || isArticles ? (
             <h1><Link style={ {    textDecoration: 'none',    borderBottom: 'none',    color: 'inherit'} } to={ prefixLink('/') }> { config.blogTitle } </Link></h1>
             ) :
             <h2><Link style={ {    textDecoration: 'none',    borderBottom: 'none',    color: 'inherit'} } to={ prefixLink('/') }> { config.blogTitle } </Link></h2> }

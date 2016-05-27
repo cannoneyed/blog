@@ -28,7 +28,7 @@ class BlogArticles extends React.Component {
                 const datePublished = access(page, 'data.datePublished')
                 const category = access(page, 'data.category')
 
-                const readSeconds = (access(page, 'data.body').split(' ').length / 120) * 60
+                const readSeconds = (access(page, 'data.body').split(' ').length / 110) * 60
                 const readTime = ' ' + moment.duration(readSeconds, 'seconds').format('m [min.] s[s.]')
 
                 pageLinks.push(

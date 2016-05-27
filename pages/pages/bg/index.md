@@ -3,10 +3,10 @@ title: My Background
 path: "/background"
 layout: page
 pageType: AboutPage
-description: "Hi. I'm a Full Stack Web Developer from Belarus, currently live in Minsk. Love to invest his time in experimental projects (JavaScript, Node.js, HTML5, CSS3, PHP, Bash)."
+description: "Hi. I'm a Full Stack Web Developer from Belarus, currently live in Minsk. Love to invest his time in experimental projects (JavaScript, Node.js, HTML5, CSS3, PHP, Bash, Go)."
 ---
 
-I'm a Full Stack Web Developer from Belarus, currently live in Minsk. Love to invest his time in experimental projects *(JavaScript, Node.js, HTML5, CSS3, PHP, Bash)*.
+I'm a Full Stack Web Developer from Belarus, currently live in Minsk. Love to invest his time in experimental projects (*JavaScript*, *Node.js*, *HTML5*, *CSS3*, *PHP*, *Bash*, *Go*).
 
 **Frameworks and CMS:**
 - CSS/HTML: Bootstrap, Foundation and Bulma (based on Flexbox).
@@ -15,18 +15,18 @@ I'm a Full Stack Web Developer from Belarus, currently live in Minsk. Love to in
 - CMS: WordPress and Livestreet.
 
 **Front End Technologies:**
-- Babel, ES6;
-- jQuery; Lodash;
-- Smarty, Twig, Blaze, Blade;
-- SASS, Stylus, PostCSS, Rucksack CSS;
-- NPM, Webpack, Brunch, Grunt, Gulp, Bower;
+- Babel, ES6.
+- jQuery, Lodash.
+- Smarty, Twig, Blaze, Blade.
+- SASS, Stylus, PostCSS, Rucksack CSS.
+- NPM, Webpack, Brunch, Grunt, Gulp, Bower.
 
 **Back End Technologies:**
-- Composer;
-- Nginx, Apache;
-- Varnish, Memcached;
-- SQLite, MySQL, PostgreSQL;
+- Composer.
+- Nginx, Apache.
+- Varnish, Memcached.
 
 **Other Technologies and Skills:**
-- Git, SVN;
-- Linux Administration (on the desktop computer is now Fedora Linux);
+- Git, SVN.
+- SQLite, MySQL, PostgreSQL.
+- Linux Administration (on the desktop computer is now Fedora Linux).

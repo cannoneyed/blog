@@ -15,7 +15,7 @@ p > code, span > code {
 	font-family: Inconsolata, monospace, serif;
 	max-width: 100%;
 	overflow: auto;
-	padding: 0.25em 0.5em;
+	padding: 0.10em 0.35em 0.20em;
 }
 pre code {
 	display: block;

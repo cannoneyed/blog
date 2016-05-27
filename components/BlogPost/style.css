@@ -88,6 +88,12 @@
 	.blog-single .text, .blog-single .footer {
 		padding: 0 15px;
 	}
+	.blog-single .text img {
+		float: none !important;
+		width: 100%;
+		margin: 0 auto;
+		height: auto;
+	}
 	.gohome {
 		position: static;
 		margin: 20px auto 0;
