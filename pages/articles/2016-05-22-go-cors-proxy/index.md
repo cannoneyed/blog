@@ -6,17 +6,17 @@ lang: ru
 layout: post
 path: "/articles/examples/golang-cors-proxy/"
 category: "Go, Examples"
-description: "В разработке прогрессивных web-приложений часто поднимается вопрос о кросс-доменных запросах. Это довольно обширный вопрос, который может послужить причиной для чтения Википедии."
+description: "В разработке прогрессивных web-приложений часто поднимается вопрос о кросс-доменных запросах. Это довольно обширный вопрос, который нередко может послужить причиной для чтения Википедии."
 
 ---
 
-В разработке прогрессивных web-приложений часто поднимается вопрос о кросс-доменных запросах. Это довольно обширный вопрос, который может послужить причиной для чтения Википедии [ <a href="https://ru.wikipedia.org/wiki/Cross-origin_resource_sharing" title="CORS" target="_blank">1</a> ] [ <a href="https://ru.wikipedia.org/wiki/JSONP" title="JSONP" target="_blank">2</a> ]. Кроме этого, существует много других статей по разным запросам в гугле на данную тему.
+В разработке прогрессивных web-приложений часто поднимается вопрос о кросс-доменных запросах. Это довольно обширный вопрос, который нередко может послужить причиной для чтения Википедии [ <a href="https://ru.wikipedia.org/wiki/Cross-origin_resource_sharing" title="CORS" target="_blank">1</a> ] [ <a href="https://ru.wikipedia.org/wiki/JSONP" title="JSONP" target="_blank">2</a> ]. Кроме этого, существует много других статей по разным запросам в гугле на данную тему.
 
 Я же постараюсь ударить по нескольким ключевым моментам, а так же покажу как быстро написать CORS веб-сервер на Golang.
 
 ![Golang Cors Proxy](./golang.jpg)
 
-Существует как минимум два способа решить этот вопрос. Первый способ — использовать JSONP, второй — CORS.
+Существует, как минимум, два способа решить этот вопрос. Первый способ — использовать JSONP, второй — CORS.
 
 JSONP
 --------
@@ -42,7 +42,7 @@ CORS
 Преимущества CORS:
 
 * Можно использовать все преимущества XMLHttpRequest
-* Нет риска иньекции
+* Нет риска инъекции
 * Легко кешировать
 * Легко в реализации
 
@@ -50,7 +50,7 @@ CORS
 
 * Технология не поддерживается в таких браузерах, как IE <= 9, Opera <12 или Firefox <3.5
 
-Поэтому, если вам нужна полноценная поддержка IE <= 9, Opera <12 или Firefox <3.5 или любых других старых браузеров, где CORS отсутстувует, то используйте JSONP. Хотелось бы добавить , что в IE8 и IE9 всё таки есть поддержка CORS, но с нюансами (см. <a href="http://blogs.msdn.com/b/ieinternals/archive/2010/05/13/xdomainrequest-restrictions-limitations-and-workarounds.aspx" title="xdomainrequest restrictions limitations and workarounds" target="_blank">blogs.msdn.com</a>).
+Поэтому, если вам нужна полноценная поддержка IE <= 9, Opera <12 или Firefox <3.5 или любых других старых браузеров, где CORS отсутствует, то используйте JSONP. Хотелось бы добавить , что в IE8 и IE9 всё таки есть поддержка CORS, но с нюансами (см. <a href="http://blogs.msdn.com/b/ieinternals/archive/2010/05/13/xdomainrequest-restrictions-limitations-and-workarounds.aspx" title="xdomainrequest restrictions limitations and workarounds" target="_blank">blogs.msdn.com</a>).
 
 Немного кода
 --------
@@ -75,7 +75,7 @@ const (
 )
 ```
 
-Добавим новую структуру `Repos` в качестве примера.
+В качестве примера добавим новую структуру `Repos`
 ```
 type Repos struct {
 	Name        string `json:"name"`
@@ -84,7 +84,7 @@ type Repos struct {
 ```
 
 Функция `getJson()` служит для декодирования JSON. На входе тип `interface{}` и URL типа `string`.
-Как вы уже заметили, используем Decode вместо Unmarshal, так как последнее лучше для статики.
+Как вы уже заметили, используем Decode вместо Unmarshal, так как Decode умеет читать из потока.
 ```
 func getJson(this interface{}, url string) error {
 	res, err := http.Get(url)
@@ -109,7 +109,7 @@ func setDefaultHeaders(w http.ResponseWriter) {
 }
 ```
 
-В функции `main()`, как правило, инициализация других фукций, рендеринг и запуск веб-сервера.
+В функции `main()`, как правило, инициализация других функций, рендеринг и запуск веб-сервера.
 ```
 func main() {
 	render := render.New()
@@ -132,6 +132,6 @@ func main() {
 
 Если все сделать правильно и запустить веб-сервер с помощью команды `go run server.go`, то мы получим список репозиториев с Name и Description на локальном хосте под портом 8000.
 
-На этом всё, надеюсь этот код натолкнул вас на мысли.
+На этом всё, надеюсь, этот код натолкнул вас на мысли.
 
 Если хотите сохранить код на будущее, то его можно найти на <a href="https://gist.github.com/wpioneer/aad6e11226563e6e52c3696fc8edd1c2" title="Golang CORS Proxy" target="_blank">Github Gist</a>.
