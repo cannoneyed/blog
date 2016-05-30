@@ -8,7 +8,10 @@
     "url": "git+https://github.com/wpioneer/mysites-blog.git"
   },
   "scripts": {
-    "dev": "gatsby develop",
+    "develop": "gatsby develop",
+    "build": "bash ./build.sh",
+    "clean:public": "rm -rf public",
+    "clean": "npm run clean:public",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
