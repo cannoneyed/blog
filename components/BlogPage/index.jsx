@@ -13,30 +13,29 @@ class BlogPage extends React.Component {
 
         const description = access(post, 'description') || post.body
 
-        let inLanguage
-        if (post.lang == 'ru') {
-            inLanguage = 'Russian'
-        } else {
-            inLanguage = 'English'
-        }
-
         const jsonLD = `
       <script type="application/ld+json">
         {
-            "@context": "http://schema.org",
-            "@type": "WebPage",
-            "author": {
-                "@type": "Person",
-                "name": "${config.authorName}",
-                "url": "http://ashk.io/",
-                "sameAs": "http://ashk.io/"
+          "@context": "http://schema.org",
+          "@type": "${post.pageType}",
+          "headline": "${post.title} - ${config.blogTitle}",
+          "description": "${post.description}",
+          "inLanguage": "${post.articleLang}",
+          "author": {
+                    "@type": "Person",
+                    "name": "${config.blogAuthor}",
+                    "url": "${config.blogUrl}"
             },
-            "mainEntity":{
-              "@type": "${post.pageType}",
-              "headline": "${post.title}",
-              "inLanguage": "${inLanguage}",
-              "description": "${description}"
-          }
+            "publisher": {
+              "@type": "Organization",
+              "name": "${config.blogTitle}",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "${config.blogLogoUrl}",
+                "width": 600,
+                "height": 60
+              }
+            }
         }
       </script>
     `

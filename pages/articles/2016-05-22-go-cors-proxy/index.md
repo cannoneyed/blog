@@ -1,20 +1,22 @@
 ---
 title: 'Разработка CORS веб-сервера на Go'
-datePublished: "2016-05-22T23:46:37.121Z"
-dateModified: "2016-05-22T23:46:37.121Z"
-lang: ru
-layout: post
 path: "/articles/examples/golang-cors-proxy/"
+layout: post
 category: "Go, Examples"
 description: "В разработке прогрессивных web-приложений часто поднимается вопрос о кросс-доменных запросах. Это довольно обширный вопрос, который нередко может послужить причиной для чтения Википедии."
-
+datePublished: "2016-05-22T23:46:37.121Z"
+dateModified: "2016-05-30T20:05:18Z"
+articleSection: "Technical"
+articleKeywords: "Go, Golang, CORS, Прокси, Proxy"
+articleThumbnail: "thumbnail.jpg"
+articleLang: Russian
 ---
 
 В разработке прогрессивных web-приложений часто поднимается вопрос о кросс-доменных запросах. Это довольно обширный вопрос, который нередко может послужить причиной для чтения Википедии [ <a href="https://ru.wikipedia.org/wiki/Cross-origin_resource_sharing" title="CORS" target="_blank">1</a> ] [ <a href="https://ru.wikipedia.org/wiki/JSONP" title="JSONP" target="_blank">2</a> ]. Кроме этого, существует много других статей по разным запросам в гугле на данную тему.
 
 Я же постараюсь ударить по нескольким ключевым моментам, а так же покажу как быстро написать CORS веб-сервер на Golang.
 
-![Golang Cors Proxy](./golang.jpg)
+![Golang Cors Proxy](./thumbnail.jpg)
 
 Существует, как минимум, два способа решить этот вопрос. Первый способ — использовать JSONP, второй — CORS.
 

@@ -48,9 +48,36 @@ class BlogArticles extends React.Component {
             }
         })
 
+        const jsonLD = `
+      <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "CollectionPage",
+          "headline": "Articles - ${config.blogTitle}",
+          "description": "${config.blogDescr}",
+          "author": {
+                    "@type": "Person",
+                    "name": "${config.blogAuthor}",
+                    "url": "${config.blogUrl}"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "${config.blogTitle}",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "${config.blogLogoUrl}",
+                "width": 600,
+                "height": 60
+              }
+            }
+        }
+      </script>
+    `
+
         return (
             <DocumentTitle title={ "Articles - " + config.blogTitle }>
               <div>
+                <div dangerouslySetInnerHTML={ {    __html: jsonLD} } />
                 <SidebarLeft {...this.props}/>
                 <div className='content'>
                   <div className='main'>

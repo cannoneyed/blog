@@ -1,9 +1,10 @@
 ---
-title: Find me
-path: "/contacts"
+title: Contacts
+path: "/contacts/"
 layout: page
-pageType: ContactPage
 description: "Alexander Shelepenok in Github, Twitter, VK and Telegram. I solve problems related to internet projects development and optimization."
+pageType: ContactPage
+articleLang: English
 ---
 
 **Email:** a.shelepenok@gmail.com

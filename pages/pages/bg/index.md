@@ -1,9 +1,10 @@
 ---
 title: My Background
-path: "/background"
+path: "/background/"
 layout: page
-pageType: AboutPage
 description: "Hi. I'm a Full Stack Web Developer from Belarus, currently live in Minsk. Love to invest his time in experimental projects (JavaScript, Node.js, HTML5, CSS3, PHP, Bash, Go)."
+pageType: AboutPage
+articleLang: English
 ---
 
 I'm a Full Stack Web Developer from Belarus, currently live in Minsk. Love to invest his time in experimental projects (*JavaScript*, *Node.js*, *HTML5*, *CSS3*, *PHP*, *Bash*, *Go*).

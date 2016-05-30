@@ -1,16 +1,18 @@
 ---
 title: 'Кеширование объектов в Go'
-datePublished: "2016-05-22T23:46:37.121Z"
-dateModified: "2016-05-22T23:46:37.121Z"
-lang: ru
-layout: post
 path: "/articles/examples/golang-json-cache/"
+layout: post
 category: "Go, Examples"
 description: "В одном из проектов мне приходилось выполнять различные манипуляции с JSON, а затем рендерить. Время ответа веб-сервера стремилось к пяти секундам, но после реализации кеширования удалось сократить до двухсот миллисекунд."
-
+datePublished: "2016-05-22T23:46:37.121Z"
+dateModified: "2016-05-30T20:05:18Z"
+articleSection: "Technical"
+articleKeywords: "Go, Golang, Кеширование, Json, Cache"
+articleThumbnail: "thumbnail.jpg"
+articleLang: Russian
 ---
 
-<img src="./golang.jpg" alt="Golang" width="220px" style="float: right" />
+<img src="./thumbnail.jpg" alt="Golang" width="220px" style="float: right" />
 
 В одном из проектов мне приходилось выполнять различные манипуляции с **JSON**, а затем рендерить. Время ответа веб-сервера было велико и стремилось к пяти секундам, но после реализации кеширования удалось сократить до двухсот миллисекунд.
 

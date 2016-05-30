@@ -35,16 +35,30 @@ class BlogIndex extends React.Component {
         <script type="application/ld+json">
           {
             "@context": "http://schema.org/",
-            "@type": "Person",
-            "name": "` + config.authorName + `",
-            "jobTitle": "Full Stack Web Developer",
-            "url": "http://ashk.io"
+            "@type": "WebPage",
+            "headline": "${config.blogTitle} - ${config.blogTitle}",
+            "description": "${config.blogDescr}",
+            "author": {
+                    "@type": "Person",
+                    "name": "${config.blogAuthor}",
+                    "url": "${config.blogUrl}"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "${config.blogTitle}",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "${config.blogLogoUrl}",
+                "width": 600,
+                "height": 60
+              }
+            }
           }
         </script>
         `
 
         return (
-            <DocumentTitle title={ config.blogTitle }>
+            <DocumentTitle title={ "Home - " + config.blogTitle }>
               <div>
                 <div dangerouslySetInnerHTML={ {    __html: jsonLD} } />
                 <SidebarLeft {...this.props}/>

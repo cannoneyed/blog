@@ -21,31 +21,49 @@ class BlogPost extends React.Component {
         </div>
         )
 
-        const description = access(post, 'description') || post.body
-
-        let inLanguage
-        if (post.lang == 'ru') {
-            inLanguage = 'Russian'
-        } else {
-            inLanguage = 'English'
-        }
+        const articleUrl = config.blogUrl.slice(0, -1) + access(post, "path")
+        const articleThumbnail = articleUrl + access(post, "articleThumbnail")
 
         const jsonLD = `
             <script type="application/ld+json">
                 {
                         "@context": "http://schema.org",
                         "@type": "Article",
-                        "headline": "${post.title}",
+                        "headline": "${post.title} - ${config.blogTitle}",
+                        "description": "${post.description}",
+                        "dateCreated": "${post.datePublished}",
                         "datePublished": "${post.datePublished}",
                         "dateModified": "${post.dateModified}",
-                        "description": "${description}",
-                        "publisher": "${config.authorName}",
-                        "inLanguage": "${inLanguage}",
+                        "url": "${articleUrl}",
+                        "mainEntityOfPage": "${articleUrl}",
+                        "articleSection": "${post.articleSection}",
+                        "keywords": "${post.articleKeywords}",
+                        "inLanguage": "${post.articleLang}",
                         "author": {
                                 "@type": "Person",
-                                "name": "${config.authorName}",
-                                "url": "http://ashk.io/",
-                                "sameAs": "http://ashk.io/"
+                                "name": "${config.blogAuthor}",
+                                "url": "${config.blogUrl}"
+                        },
+                        "editor": {
+                                "@type": "Person",
+                                "name": "${config.blogAuthor}",
+                                "url": "${config.blogUrl}"
+                        },
+                        "publisher": {
+                          "@type": "Organization",
+                          "name": "${config.blogTitle}",
+                          "logo": {
+                            "@type": "ImageObject",
+                            "url": "${config.blogLogoUrl}",
+                            "width": 600,
+                            "height": 60
+                          }
+                        },
+                        "image": {
+                          "@type": "ImageObject",
+                          "url": "${articleThumbnail}",
+                          "width": 720,
+                          "height": 360
                         }
                 }
             </script>
@@ -58,12 +76,12 @@ class BlogPost extends React.Component {
                 <div className='text'>
                   <h1>{ post.title }</h1>
                   <div ref='postBody' dangerouslySetInnerHTML={ {    __html: post.body} } />
-                  <em>Published { moment(post.datePublished).format('D MMM YYYY') }</em>
+                  <em>Published by { config.blogAuthor } at { moment(post.datePublished).format('D MMM YYYY') }</em>
                 </div>
                 <div className='footer'>
                   <ReadNext post={ post } {...this.props}/>
                   <p>
-                    <strong>{ config.authorName }</strong> © All rights reserved. <a href={ config.twitter }>wpioneer on Twitter</a>
+                    <strong>{ config.blogTitle }</strong> © All rights reserved
                   </p>
                 </div>
               </div>

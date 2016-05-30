@@ -15,9 +15,9 @@ class SidebarLeft extends React.Component {
         let header = (
         <header>
           { isHome || isArticles ? (
-            <h1><Link style={ {    textDecoration: 'none',    borderBottom: 'none',    color: 'inherit'} } to={ prefixLink('/') }> { config.blogTitle } </Link></h1>
+            <h1><Link style={ {    textDecoration: 'none',    borderBottom: 'none',    color: 'inherit'} } to={ prefixLink('/') }> { config.blogAuthor } </Link></h1>
             ) :
-            <h2><Link style={ {    textDecoration: 'none',    borderBottom: 'none',    color: 'inherit'} } to={ prefixLink('/') }> { config.blogTitle } </Link></h2> }
+            <h2><Link style={ {    textDecoration: 'none',    borderBottom: 'none',    color: 'inherit'} } to={ prefixLink('/') }> { config.blogAuthor } </Link></h2> }
           <p>
             { config.blogDescr }
           </p>

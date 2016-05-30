@@ -7,12 +7,12 @@ import '../../static/fonts/hyperico/style.css'
 class BlogSocial extends React.Component {
     render() {
 
-        const twitter = config.twitter
-        const vk = config.vk
-        const rss = config.rss
-        const email = config.email
-        const github = config.github
-        const telegram = config.telegram
+        const twitter = config.blogTwitterUrl
+        const vk = config.blogVkUrl
+        const rss = config.blogRssUrl
+        const email = config.blogEmailUrl
+        const github = config.blogGithubUrl
+        const telegram = config.blogTelegramUrl
 
         return (
             <div className='blog-social'>
