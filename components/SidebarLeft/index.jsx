@@ -1,9 +1,9 @@
 import React from 'react'
 import { RouteHandler, Link } from 'react-router'
 import { prefixLink } from 'gatsby-helpers'
+import { config } from 'config'
 import BlogNav from '../BlogNav'
 import BlogSocial from '../BlogSocial'
-import { config } from 'config'
 import './style.css'
 
 class SidebarLeft extends React.Component {

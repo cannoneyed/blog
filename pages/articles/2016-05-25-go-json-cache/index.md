@@ -5,14 +5,14 @@ layout: post
 category: "Go, Examples"
 description: "В одном из проектов мне приходилось выполнять различные манипуляции с JSON, а затем рендерить. Время ответа веб-сервера стремилось к пяти секундам, но после реализации кеширования удалось сократить до двухсот миллисекунд."
 datePublished: "2016-05-22T23:46:37.121Z"
-dateModified: "2016-05-30T20:05:18Z"
+dateModified: "2016-06-02T22:53:52Z"
 articleSection: "Technical"
 articleKeywords: "Go, Golang, Кеширование, Json, Cache"
-articleThumbnail: "thumbnail.jpg"
+articleThumbnail: "thumbnail.png"
 articleLang: Russian
 ---
 
-<img src="./thumbnail.jpg" alt="Golang" width="220px" style="float: right" />
+<img src="./thumbnail.png" alt="Golang" width="220px" style="float: right" />
 
 В одном из проектов мне приходилось выполнять различные манипуляции с **JSON**, а затем рендерить. Время ответа веб-сервера было велико и стремилось к пяти секундам, но после реализации кеширования удалось сократить до двухсот миллисекунд.
 
@@ -22,7 +22,7 @@ articleLang: Russian
 
 ## 1. Декодирование JSON
 
-Перед тем как начать, выполним `go get github.com/pmylund/go-cache` и `go get github.com/unrolled/render` из консоли, а затем импортируем пакеты. Ключевое звено в кешировании — пакет <a href="go-cache" title="caching in Golang" target="_blank">github.com/pmylund/go-cache</a>, который представляет собой key:value хранилище в памяти. Главным преимуществом **go-cache** является то, что не нужно сериализовать и передавать данные по сети.
+Перед тем как начать, выполним `go get github.com/pmylund/go-cache` и `go get github.com/unrolled/render` из консоли, а затем импортируем пакеты. Ключевое звено в кешировании — пакет <a href="https://github.com/pmylund/go-cache/" title="caching in Golang" target="_blank">github.com/pmylund/go-cache</a>, который представляет собой key:value хранилище в памяти. Главным преимуществом **go-cache** является то, что не нужно сериализовать и передавать данные по сети.
 ```
 package main
 

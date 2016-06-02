@@ -3,9 +3,7 @@ import { config } from 'config'
 import './style.css';
 
 class PocketFeed extends React.Component {
-
     render() {
-
         const bookmarks = this.props
         const pocketFeed = []
 

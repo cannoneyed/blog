@@ -8,7 +8,7 @@ datePublished: "2016-05-22T23:46:37.121Z"
 dateModified: "2016-05-30T20:05:18Z"
 articleSection: "Technical"
 articleKeywords: "Go, Golang, CORS, Прокси, Proxy"
-articleThumbnail: "thumbnail.jpg"
+articleThumbnail: "thumbnail.png"
 articleLang: Russian
 ---
 
@@ -16,7 +16,7 @@ articleLang: Russian
 
 Я же постараюсь ударить по нескольким ключевым моментам, а так же покажу как быстро написать CORS веб-сервер на Golang.
 
-![Golang Cors Proxy](./thumbnail.jpg)
+![Golang Cors Proxy](./thumbnail.png)
 
 Существует, как минимум, два способа решить этот вопрос. Первый способ — использовать JSONP, второй — CORS.
 

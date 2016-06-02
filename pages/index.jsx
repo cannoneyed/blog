@@ -36,7 +36,7 @@ class BlogIndex extends React.Component {
           {
             "@context": "http://schema.org/",
             "@type": "WebPage",
-            "headline": "${config.blogTitle} - ${config.blogTitle}",
+            "headline": "Home - ${config.blogTitle}",
             "description": "${config.blogDescr}",
             "author": {
                     "@type": "Person",

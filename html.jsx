@@ -30,7 +30,7 @@ module.exports = React.createClass({
                       `
         let css
         if (process.env.NODE_ENV === 'production') {
-            css = <style dangerouslySetInnerHTML={ {    __html: require('!raw!./public/styles.css')} } />
+            css = <style dangerouslySetInnerHTML={ {    __html: require('!raw!postcss!./public/styles.css')} } />
         }
 
         return (
@@ -39,7 +39,6 @@ module.exports = React.createClass({
               <meta charSet="utf-8" />
               <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
               <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=5.0" />
-              <meta name="description" content={ description } />
               <title>
                 { title }
               </title>

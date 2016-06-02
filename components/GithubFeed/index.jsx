@@ -3,21 +3,9 @@ import './style.css'
 
 class GithubFeed extends React.Component {
     render() {
-
         const repos = this.props
         const githubFeed = []
 
-        /* add other Projects */
-        githubFeed.push(
-            <li>
-              <p>
-                <a href='https://github.com/hb-gatsby/gatsby-starter-lumen'>gatsby-starter-lumen</a>
-                <span>&nbsp;—&nbsp; Simple starter for Gatsby</span>
-              </p>
-            </li>
-        )
-
-        /*add Projects from API*/
         for (var i in repos) {
             if (repos[i].fork != true) {
                 githubFeed.push(

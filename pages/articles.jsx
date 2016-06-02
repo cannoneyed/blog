@@ -14,7 +14,6 @@ import SidebarLeft from '../components/SidebarLeft'
 
 class BlogArticles extends React.Component {
     render() {
-
         const pageLinks = []
         const sortedPages = sortBy(this.props.route.pages, (page) => access(page, 'data.date')
         ).reverse()
