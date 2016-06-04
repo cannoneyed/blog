@@ -1,18 +1,17 @@
 import React from 'react'
 import DocumentTitle from 'react-document-title'
-import SidebarLeft from '../SidebarLeft'
+import BlogSidebar from '../BlogSidebar'
 import access from 'safe-access'
 import { config } from 'config'
 
-import './style.css';
+import BlogFooter from '../BlogFooter'
+import './style.css'
 
 class BlogPage extends React.Component {
     render() {
         const {route} = this.props
         const post = route.page.data
-
         const description = access(post, 'description') || post.body
-
         const jsonLD = `
       <script type="application/ld+json">
         {
@@ -39,23 +38,21 @@ class BlogPage extends React.Component {
         }
       </script>
     `
-
         return (
             <div>
               <div dangerouslySetInnerHTML={ {    __html: jsonLD} } />
-              <SidebarLeft {...this.props}/>
-              <div className='content'>
-                <div className='main'>
-                  <div className='main-inner'>
-                    <div className='blog-page'>
-                      <div className='text'>
-                        <h1>{ post.title }</h1>
-                        <div dangerouslySetInnerHTML={ {    __html: post.body} } />
-                      </div>
+              <div className='grid'>
+                <BlogSidebar {...this.props}/>
+                <div className='content'>
+                  <div className='content__inner'>
+                    <div className='page'>
+                      <h1 className='page__heading'>{ post.title }</h1>
+                      <div className='page__body' dangerouslySetInnerHTML={ {    __html: post.body} } />
                     </div>
                   </div>
                 </div>
               </div>
+              <BlogFooter />
             </div>
             );
     }

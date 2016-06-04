@@ -1,33 +1,23 @@
-.blog-page {
+.page {
 	margin-bottom: 40px;
 }
-.blog-page:last-child {
-	margin-bottom: 0;
-}
-.blog-page h1 {
+.page__heading {
 	font-size: responsive 24px 36px;
 	margin-top: 0;
 }
-.blog-page p {
+.page__body {
 	font-size: 16px;
 	line-height: 1.5;
 	margin-top: 10px;
 }
-.blog-page ul {
+.page__body ul {
 	margin-bottom: 20px
 }
-.blog-page ul li {
+.page__body ul li {
 	margin-bottom: 10px
 }
 @media (max-width:900px) {
-	.gohome {
-		position: static;
-		margin: 20px auto 0;
-		text-align: center;
-		width: 84px;
-		display: block;
-	}
-	.blog-page ul {
+	.page__body ul {
 		padding-left: 15px;
 	}
 }
