@@ -8,15 +8,15 @@
 .nav__elem {
 	margin: 10px 0 13px;
 }
-.nav__elem a {
+.nav__elem-link {
 	border-bottom: 0;
 	font-weight: 400;
 	color: #1751FF;
 }
-.nav__elem a:hover {
+.nav__elem-link:hover {
 	border-bottom: 1px solid;
 }
-.nav__elem--current a {
+.nav__elem--current .nav__elem-link {
 	color: #222;
-	border-bottom: none !important;
+	border-bottom: none;
 }

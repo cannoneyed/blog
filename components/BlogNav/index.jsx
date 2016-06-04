@@ -11,19 +11,19 @@ class BlogNav extends React.Component {
             <nav className='nav'>
               <ul className='nav__list'>
                 <li className={ location.pathname === prefixLink('/') ? "nav__elem nav__elem--current" : "nav__elem" }>
-                  <Link title="Home page" to="/"> Home
+                  <Link className='nav__elem-link' title='Home page' to="/"> Home
                   </Link>
                 </li>
                 <li className={ location.pathname === prefixLink('/background/') ? "nav__elem nav__elem--current" : "nav__elem" }>
-                  <Link title="About me" to="/background/"> Background
+                  <Link className='nav__elem-link' title='About me' to='/background/'> Background
                   </Link>
                 </li>
                 <li className={ location.pathname === prefixLink('/articles/') ? "nav__elem nav__elem--current" : "nav__elem" }>
-                  <Link title="Articles" to="/articles/"> Articles
+                  <Link className='nav__elem-link' title='Articles' to='/articles/'> Articles
                   </Link>
                 </li>
                 <li className={ location.pathname === prefixLink('/contacts/') ? "nav__elem nav__elem--current" : "nav__elem" }>
-                  <Link title="Contacts" to="/contacts/"> Contacts
+                  <Link className='nav__elem-link' title='Contacts' to='/contacts/'> Contacts
                   </Link>
                 </li>
               </ul>
