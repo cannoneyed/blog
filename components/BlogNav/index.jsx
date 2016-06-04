@@ -8,22 +8,22 @@ class BlogNav extends React.Component {
     render() {
         const {location} = this.props
         return (
-            <nav className='blog-nav'>
-              <ul>
-                <li>
-                  <Link to="/" className={ location.pathname === prefixLink('/') ? "current" : null }> Home
+            <nav className='nav'>
+              <ul className='nav__list'>
+                <li className={ location.pathname === prefixLink('/') ? "nav__elem nav__elem--current" : "nav__elem" }>
+                  <Link title="Home page" to="/"> Home
                   </Link>
                 </li>
-                <li>
-                  <Link to="/background/" className={ location.pathname === prefixLink('/background/') ? "current" : null }> Background
+                <li className={ location.pathname === prefixLink('/background/') ? "nav__elem nav__elem--current" : "nav__elem" }>
+                  <Link title="About me" to="/background/"> Background
                   </Link>
                 </li>
-                <li>
-                  <Link to="/articles/" className={ location.pathname === prefixLink('/articles/') ? "current" : null }> Articles
+                <li className={ location.pathname === prefixLink('/articles/') ? "nav__elem nav__elem--current" : "nav__elem" }>
+                  <Link title="Articles" to="/articles/"> Articles
                   </Link>
                 </li>
-                <li>
-                  <Link to="/contacts/" className={ location.pathname === prefixLink('/contacts/') ? "current" : null }> Contacts
+                <li className={ location.pathname === prefixLink('/contacts/') ? "nav__elem nav__elem--current" : "nav__elem" }>
+                  <Link title="Contacts" to="/contacts/"> Contacts
                   </Link>
                 </li>
               </ul>

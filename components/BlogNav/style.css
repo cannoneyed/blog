@@ -1,22 +1,22 @@
-.blog-nav {
+.nav {
 	margin: 20px 0px 10px;
 }
-.blog-nav ul {
+.nav__list {
 	list-style: none;
 	padding-left: 0;
 }
-.blog-nav ul li {
+.nav__elem {
 	margin: 10px 0 13px;
 }
-.blog-nav ul li a {
+.nav__elem a {
 	border-bottom: 0;
 	font-weight: 400;
 	color: #1751FF;
 }
-.blog-nav ul li a.current {
+.nav__elem a:hover {
+	border-bottom: 1px solid;
+}
+.nav__elem--current a {
 	color: #222;
 	border-bottom: none !important;
-}
-.blog-nav ul li a:hover {
-	border-bottom: 1px solid;
 }
