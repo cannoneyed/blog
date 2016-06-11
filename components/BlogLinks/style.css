@@ -1,13 +1,13 @@
-.blog-social {
+.social-links {
 	margin-top: 30px;
 }
-.blog-social ul {
+.social-links__list {
 	list-style: none;
 	padding: 0;
 	margin: 10px 0;
 	clear: fix-legacy;
 }
-.blog-social ul > li {
+.social-links__elem {
 	float: left;
 	margin-right: 5px;
 	text-align: center;
@@ -16,17 +16,14 @@
 	border-radius: 3px;
 	background: #f4f4f4;
 }
-.blog-social ul > li:hover {
-	background: #f4f4f4;
-}
-.blog-social ul > li > a {
+.social-links__elem-link {
 	border-bottom: 0;
 }
-.blog-social ul > li > a > i {
+.social-links__icon {
 	color: #606060;
 	font-size: 14px;
 	line-height: 24px;
 }
-.blog-social ul > li:hover a > i {
+.social-links__elem:hover .social-links__icon {
 	color: #444;
 }
