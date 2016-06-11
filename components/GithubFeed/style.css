@@ -1,26 +1,24 @@
 .github-feed {
 	padding: 0;
+	margin-bottom: 35px;
 }
-.github-feed h3 {
-	font-size: responsive 24px 36px;
+.github-feed__list {
 	margin: 0;
-}
-.github-feed ul {
 	padding: 0 0 0 15px;
 	list-style-type: square;
 }
-.github-feed ul > li p {
+.github-feed__heading {
+	font-size: responsive 24px 36px;
+	margin: 0 0 10px;
+}
+.github-feed__elem {
 	font-size: 16px;
 	line-height: 1.5;
+	margin: 15px 0;
 }
-.github-feed ul > li a {
-	font-weight: 500;
+.github-feed__title-link {
+	font-weight: 400;
 }
-
-/*@media (max-width:1100px) {
-	.github-feed {
-	}
-}*/
 @media (max-width:900px) {
 	.github-feed ul {
 		list-style: none;

@@ -9,22 +9,20 @@ class GithubFeed extends React.Component {
         for (var i in repos) {
             if (repos[i].fork != true) {
                 githubFeed.push(
-                    <li>
-                      <p>
-                        <a href={ repos[i].html_url }>
-                          { repos[i].name }
-                        </a>
-                        <span>&nbsp;—&nbsp; { repos[i].description }.</span>
-                      </p>
+                    <li className='github-feed__elem'>
+                      <a lassName='github-feed__titile-link' href={ repos[i].html_url }>
+                        { repos[i].name }
+                      </a>
+                      <span className='github-feed__descr'>&nbsp;—&nbsp; { repos[i].description }.</span>
                     </li>
                 )
             }
         }
 
         return (
-            <div className="github-feed">
-              <h3>Github Projects Feed</h3>
-              <ul>
+            <div className='github-feed'>
+              <h3 className='github-feed__heading'>Latest Projects from Github</h3>
+              <ul className='github-feed__list'>
                 { githubFeed }
               </ul>
             </div>

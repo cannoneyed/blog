@@ -11,24 +11,33 @@ class PocketFeed extends React.Component {
             if (i == 6) break
             if (bookmarks[i].Thumbnail.length != 0) {
                 pocketFeed.push(
-                    <div className="pocket-feed__cell">
-                      <a className="pocket-feed__thumbnail" target="_blank" href={ bookmarks[i].given_url }><img alt={ bookmarks[i].resolved_title } height="150" src={ config.blogUploadsUrl + bookmarks[i].Thumbnail } /></a>
-                      <h5 className="pocket-feed__heading"><a target="_blank" href={ bookmarks[i].given_url }>{ bookmarks[i].resolved_title }</a></h5>
+                    <div className='pocket-feed__cell'>
+                      <a className='pocket-feed__thumbnail'
+                        target='_blank'
+                        href={ bookmarks[i].given_url }
+                        rel='nofollow'><img alt={ bookmarks[i].resolved_title } height="150" src={ config.blogUploadsUrl + bookmarks[i].Thumbnail } /></a>
+                      <h5 className='pocket-feed__title'><a className='pocket-feed__title-link'
+                                                           target='_blank'
+                                                           href={ bookmarks[i].given_url }
+                                                           rel='nofollow'>{ bookmarks[i].resolved_title }</a></h5>
                     </div>
                 )
             } else {
                 pocketFeed.push(
-                    <div className="pocket-feed__cell">
-                      <h5 className="pocket-feed__heading"><a target="_blank" href={ bookmarks[i].given_url }>{ bookmarks[i].resolved_title }</a></h5>
+                    <div className='pocket-feed__cell'>
+                      <h5 className='pocket-feed__title'><a className='pocket-feed__title-link'
+                                                           target="_blank"
+                                                           href={ bookmarks[i].given_url }
+                                                           rel='nofollow'>{ bookmarks[i].resolved_title }</a></h5>
                     </div>
                 )
             }
         }
 
         return (
-            <div className="pocket-feed">
-              <h3>Daily Digest</h3>
-              <div className="pocket-feed__row">
+            <div className='pocket-feed'>
+              <h3 className='pocket-feed__heading'>Daily Digest</h3>
+              <div className='pocket-feed__row'>
                 { pocketFeed }
               </div>
             </div>
