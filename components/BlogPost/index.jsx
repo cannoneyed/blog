@@ -4,9 +4,9 @@ import { RouteHandler, Link } from 'react-router'
 import DocumentTitle from 'react-document-title'
 import { prefixLink } from 'gatsby-helpers'
 import access from 'safe-access'
-import ReadNext from '../ReadNext'
 import { config } from 'config'
-
+import ReadNext from '../ReadNext'
+import BlogFooter from '../BlogFooter'
 import './style.css'
 import '../../static/css/highlight.css'
 
@@ -16,14 +16,12 @@ class BlogPost extends React.Component {
         const post = route.page.data
         const home = (
         <div>
-          <Link className='gohome' to={ prefixLink('/articles/') }> All Articles
+          <Link className='post__gohome' to={ prefixLink('/articles/') }> All Articles
           </Link>
         </div>
         )
-
         const articleUrl = config.blogUrl.slice(0, -1) + access(post, "path")
         const articleThumbnail = articleUrl + access(post, "articleThumbnail")
-
         const jsonLD = `
             <script type="application/ld+json">
                 {
@@ -71,17 +69,20 @@ class BlogPost extends React.Component {
         return (
             <div>
               <div dangerouslySetInnerHTML={ {    __html: jsonLD} } />
-              { home }
-              <div className='blog-single'>
-                <div className='text'>
-                  <h1>{ post.title }</h1>
-                  <div ref='postBody' dangerouslySetInnerHTML={ {    __html: post.body} } />
-                  <em>Published by { config.blogAuthor } at { moment(post.datePublished).format('D MMM YYYY') }</em>
-                </div>
-                <div className='footer'>
-                  <ReadNext post={ post } {...this.props}/>
+              <div className='post'>
+                { home }
+                <h1 className='post__heading'>{ post.title }</h1>
+                <div className='post__body' dangerouslySetInnerHTML={ {    __html: post.body} } />
+                <div className='post__footer'>
+                  <p className='post__meta'>
+                    { "Published by " + config.blogAuthor + " at " + moment(post.datePublished).format('D MMM YYYY') }
+                  </p>
+                  <ReadNext post={ post } {...this.props} />
                   <p>
-                    <strong>{ config.blogTitle }</strong> © All rights reserved
+                    All content licensed under <a href='http://creativecommons.org/licenses/by-nc/4.0/'
+                                                 title='CC BY-NC 4.0'
+                                                 target='_blank'
+                                                 rel='nofollow'>CC BY-NC 4.0</a>
                   </p>
                 </div>
               </div>
