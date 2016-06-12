@@ -1,11 +1,11 @@
 .sidebar {
-	lost-column: 1/3;
+	lost-column: 4/12;
 }
-.sidebar .sidebar-inner {
+.sidebar__inner {
 	position: relative;
 	padding: 40px 40px;
 }
-.sidebar .sidebar-inner:after {
+.sidebar__inner:after {
 	background: #eee;
 	background: linear-gradient(to bottom, #eee 0%, #eee 48%, #fff 100%);
 	position: absolute;
@@ -16,32 +16,40 @@
 	right: -10px;
 	bottom: 0;
 }
-.sidebar .sidebar-inner h1, .sidebar .sidebar-inner h2 {
+.sidebar__author {
 	font-size: 18px;
 	font-weight: 500;
 	margin: 5px 0;
 }
-.sidebar .sidebar-inner p {
+.sidebar__author-link {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 0;
+}
+.sidebar__descr {
 	font-size: 16px;
 	line-height: 1.625;
 }
-.sidebar .sidebar-inner p.copyright {
+.sidebar__copyright {
 	color: #b6b6b6;
 	font-size: 14px;
 }
+.sidebar__copyright-link {
+	color: #b6b6b6;
+}
 @media (max-width:1100px) {
-	.sidebar .sidebar-inner {
-		padding: 20px 15px;
-	}
 	.sidebar {
 		lost-column: 4/12;
+	}
+	.sidebar__inner {
+		padding: 20px 15px;
 	}
 }
 @media (max-width:900px) {
 	.sidebar {
 		lost-column: 4/12;
 	}
-	.sidebar .sidebar-inner {
+	.sidebar__inner {
 		padding: 15px 15px;
 	}
 }
@@ -49,10 +57,10 @@
 	.sidebar {
 		lost-column: 1;
 	}
-	.sidebar .sidebar-inner {
+	.sidebar__inner {
 		padding: 5px 15px;
 	}
-	.sidebar .sidebar-inner:after {
+	.sidebar__inner:after {
 		display: none;
 	}
 }
