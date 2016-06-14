@@ -81,7 +81,7 @@
 	}
 	.post__body img {
 		float: none !important;
-		margin: 0 auto;
+		margin: 0 auto !important;
 		width: 100%;
 	}
 	.post__gohome {

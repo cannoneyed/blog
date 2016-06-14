@@ -1,7 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import { RouteHandler, Link } from 'react-router'
-import DocumentTitle from 'react-document-title'
+import Helmet from 'react-helmet'
 import { prefixLink } from 'gatsby-helpers'
 import access from 'safe-access'
 import { config } from 'config'
@@ -68,6 +68,17 @@ class BlogPost extends React.Component {
         `
         return (
             <div>
+              <Helmet
+                  htmlAttributes={{"lang": "ru"}}
+                  title={ `${post.title} - ${config.blogTitle}` }
+                  meta={[
+                      {"name": "description", "content": post.shortDescription},
+                      {"property": "og:type", "content": "article"}
+                  ]}
+                  link={[
+                       {"rel": "canonical", "href": articleUrl}
+                  ]}
+              />
               <div dangerouslySetInnerHTML={ {    __html: jsonLD} } />
               <div className='post'>
                 { home }

@@ -3,14 +3,15 @@ import { Link } from 'react-router'
 import sortBy from 'lodash/sortBy'
 import moment from 'moment'
 import duration from 'moment-duration-format'
-import DocumentTitle from 'react-document-title'
+import Helmet from 'react-helmet'
 import { prefixLink } from 'gatsby-helpers'
 import access from 'safe-access'
 import include from 'underscore.string/include'
 import { config } from 'config'
 
 import BlogPost from '../components/BlogPost'
-import SidebarLeft from '../components/SidebarLeft'
+import BlogFooter from '../components/BlogFooter'
+import BlogSidebar from '../components/BlogSidebar'
 
 class BlogArticles extends React.Component {
     render() {
@@ -31,15 +32,15 @@ class BlogArticles extends React.Component {
                 const readTime = ' ' + moment.duration(readSeconds, 'seconds').format('m [min.] s[s.]')
 
                 pageLinks.push(
-                    <div className='blog-post'>
-                      <time dateTime={ moment(datePublished).format('MMMM D, YYYY') }>
+                    <div className='posts__elem'>
+                      <time className='posts__date' dateTime={ moment(datePublished).format('MMMM D, YYYY') }>
                         { moment(datePublished).format('MMMM YYYY') }
                       </time>
                       <span style={ {    padding: '5px',    fontSize: '14px'} }></span>
-                      <span className='blog-category'>{ category }</span>
-                      <h2><Link style={ {    borderBottom: 'none',} } to={ prefixLink(page.path) } > { title } </Link></h2>
-                      <p dangerouslySetInnerHTML={ {    __html: description} } />
-                      <Link style={ {    borderBottom: 'none'} } className='readmore' to={ prefixLink(page.path) }> Read
+                      <span className='posts__category'>{ category }</span>
+                      <h2 className='posts__heading'><Link className='posts__heading-link' to={ prefixLink(page.path) } > { title } </Link></h2>
+                      <p className='posts__descr' dangerouslySetInnerHTML={ {    __html: description} } />
+                      <Link className='posts__readmore' to={ prefixLink(page.path) }> Read
                       { readTime }
                       </Link>
                     </div>
@@ -74,22 +75,33 @@ class BlogArticles extends React.Component {
     `
 
         return (
-            <DocumentTitle title={ "Articles - " + config.blogTitle }>
               <div>
+                <Helmet
+                  htmlAttributes={{"lang": "en"}}
+                    title={ "Articles - " + config.blogTitle }
+                    meta={[
+                        {"name": "description", "content": config.blogDescr},
+                    ]}
+                    link={[
+                         {"rel": "canonical", "href": config.blogUrl + "articles/"}
+                    ]}
+                />
                 <div dangerouslySetInnerHTML={ {    __html: jsonLD} } />
-                <SidebarLeft {...this.props}/>
-                <div className='content'>
-                  <div className='main'>
-                    <div className='main-inner'>
-                      { pageLinks }
-                    </div>
-                    <div className='coming-soon'>
-                      Coming Soon ...
+                <div className='grid'>
+                  <BlogSidebar {...this.props}/>
+                  <div className='content'>
+                    <div className='content__inner'>
+                      <div className='posts'>
+                        { pageLinks }
+                      </div>
+                      <div className='content__coming-soon'>
+                        Coming Soon ...
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </DocumentTitle>
+
         )
     }
 }

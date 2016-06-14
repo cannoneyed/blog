@@ -1,4 +1,4 @@
-p > code, span > code {
+p > code, span > code, li > code, font > code {
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;

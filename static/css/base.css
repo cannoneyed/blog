@@ -1,5 +1,6 @@
 body {
 	color: #222;
+	background: #fff;
 	font-family: "Roboto", Arial, sans-serif;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -33,20 +34,35 @@ blockquote {
 	margin: 0 0 40px;
 	letter-spacing: 0.03em;
 }
+ul {
+	list-style: square;
+	padding-left: 16px;
+}
 .wrapper {
 	lost-center: 1100px;
 }
-.content {
-	lost-column: 2/3;
+.grid {
+	lost-row: 1/12;
 }
-.main-inner {
+.content {
+	lost-column: 8/12;
+}
+.content__inner {
 	padding: 20px 40px 20px;
+}
+.content__coming-soon {
+	margin-top: 20px;
+	text-align: center;
+	font-weight: bold;
+	color: #ddd;
+	font-size: responsive 24px 36px;
+	margin-bottom: 20px;
 }
 @media (max-width:1100px) {
 	.content {
 		lost-column: 8/12;
 	}
-	.main-inner {
+	.content__inner {
 		padding: 20px 15px;
 	}
 }
@@ -54,7 +70,7 @@ blockquote {
 	.content {
 		lost-column: 8/12;
 	}
-	.main-inner {
+	.content__inner {
 		padding: 15px 15px;
 	}
 }
@@ -62,7 +78,7 @@ blockquote {
 	.content {
 		lost-column: 1;
 	}
-	.main-inner {
+	.content__inner {
 		padding: 10px 15px;
 	}
 }

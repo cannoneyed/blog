@@ -1,24 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Link } from 'react-router'
-import DocumentTitle from 'react-document-title'
+import Helmet from 'react-helmet'
 import { prefixLink } from 'gatsby-helpers'
 import { config } from 'config'
 
-import SidebarLeft from '../components/SidebarLeft'
+import BlogSidebar from '../components/BlogSidebar'
+import BlogFooter from '../components/BlogFooter'
 import GithubFeed from '../components/GithubFeed'
 import PocketFeed from '../components/PocketFeed'
 
 class BlogIndex extends React.Component {
     componentDidMount() {
         const Fetch = require('../utils/Fetch')
-        const pfContainer = (
-        <div>
-          <Fetch url='//api.ashk.io/feed/bookmarks'>
-            <PocketFeed />
-          </Fetch>
-        </div>
-        )
+
         const gfContainer = (
         <div>
           <Fetch url='//api.ashk.io/feed/repos'>
@@ -26,9 +21,16 @@ class BlogIndex extends React.Component {
           </Fetch>
         </div>
         )
-
-        ReactDOM.render(pfContainer, ReactDOM.findDOMNode(this.refs.pocket))
         ReactDOM.render(gfContainer, ReactDOM.findDOMNode(this.refs.github))
+
+        const pfContainer = (
+        <div>
+          <Fetch url='//api.ashk.io/feed/bookmarks'>
+            <PocketFeed />
+          </Fetch>
+        </div>
+        )
+        ReactDOM.render(pfContainer, ReactDOM.findDOMNode(this.refs.pocket))
     }
     render() {
         const jsonLD = `
@@ -58,20 +60,28 @@ class BlogIndex extends React.Component {
         `
 
         return (
-            <DocumentTitle title={ "Home - " + config.blogTitle }>
               <div>
+                <Helmet
+                    htmlAttributes={{"lang": "en"}}
+                    title={ "Home - " + config.blogTitle }
+                    meta={[
+                        {"name": "description", "content": config.blogDescr},
+                    ]}
+                    link={[
+                         {"rel": "canonical", "href": config.blogUrl}
+                    ]}
+                />
                 <div dangerouslySetInnerHTML={ {    __html: jsonLD} } />
-                <SidebarLeft {...this.props}/>
-                <div className='content'>
-                  <div className='main'>
-                    <div className='main-inner'>
-                      <div ref='pocket' />
+                <div className='grid'>
+                  <BlogSidebar {...this.props} />
+                  <div className='content'>
+                    <div className='content__inner'>
                       <div ref='github' />
+                      <div ref='pocket' />
                     </div>
                   </div>
                 </div>
               </div>
-            </DocumentTitle>
         )
     }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
-import DocumentTitle from 'react-document-title'
 import BlogSidebar from '../BlogSidebar'
+import Helmet from 'react-helmet'
 import access from 'safe-access'
 import { config } from 'config'
 
@@ -11,6 +11,7 @@ class BlogPage extends React.Component {
     render() {
         const {route} = this.props
         const post = route.page.data
+        const articleUrl = config.blogUrl.slice(0, -1) + access(post, "path")
         const description = access(post, 'description') || post.body
         const jsonLD = `
       <script type="application/ld+json">
@@ -40,6 +41,16 @@ class BlogPage extends React.Component {
     `
         return (
             <div>
+              <Helmet
+                  htmlAttributes={{"lang": "en"}}
+                  title={ `${post.title} - ${config.blogTitle}` }
+                  meta={[
+                      {"name": "description", "content": post.description}
+                  ]}
+                  link={[
+                       {"rel": "canonical", "href": articleUrl}
+                  ]}
+              />
               <div dangerouslySetInnerHTML={ {    __html: jsonLD} } />
               <div className='grid'>
                 <BlogSidebar {...this.props}/>

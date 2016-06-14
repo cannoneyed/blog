@@ -1,5 +1,4 @@
 import React from 'react'
-import DocumentTitle from 'react-document-title'
 import { config } from 'config'
 import BlogPost from '../components/BlogPost'
 import BlogPage from '../components/BlogPage'
@@ -19,11 +18,9 @@ class MarkdownWrapper extends React.Component {
         }
 
         return (
-            <DocumentTitle title={ `${post.title} - ${config.blogTitle}` }>
               <div>
                 { template }
               </div>
-            </DocumentTitle>
             );
     }
 }
