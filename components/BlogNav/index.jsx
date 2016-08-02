@@ -14,10 +14,6 @@ class BlogNav extends React.Component {
                   <Link className='nav__elem-link' title='Home page' to="/"> Home
                   </Link>
                 </li>
-                <li className={ location.pathname === prefixLink('/background/') ? "nav__elem nav__elem--current" : "nav__elem" }>
-                  <Link className='nav__elem-link' title='About me' to='/background/'> Background
-                  </Link>
-                </li>
                 <li className={ location.pathname === prefixLink('/articles/') ? "nav__elem nav__elem--current" : "nav__elem" }>
                   <Link className='nav__elem-link' title='Articles' to='/articles/'> Articles
                   </Link>

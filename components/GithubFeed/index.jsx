@@ -10,7 +10,7 @@ class GithubFeed extends React.Component {
             if (repos[i].fork != true) {
                 githubFeed.push(
                     <li className='github-feed__elem'>
-                      <a lassName='github-feed__titile-link' href={ repos[i].html_url }>
+                      <a lassName='github-feed__titile-link' href={ repos[i].html_url } target='_blank'>
                         { repos[i].name }
                       </a>
                       <span className='github-feed__descr'>&nbsp;—&nbsp; { repos[i].description }.</span>
